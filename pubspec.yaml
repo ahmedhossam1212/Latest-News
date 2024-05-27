@@ -16,6 +16,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   dio: ^5.4.3+1
   flutter_bloc: ^8.1.5
+  firebase_core: ^2.31.1
 
 dev_dependencies:
   flutter_test:
