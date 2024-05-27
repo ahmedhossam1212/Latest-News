@@ -7,7 +7,7 @@ class AppTheme {
   static ThemeData lightTheme() {
     return ThemeData(
       colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColors.red, surfaceTint: Colors.transparent),
+          seedColor: AppColors.yellow, surfaceTint: Colors.transparent),
       scaffoldBackgroundColor: Colors.white,
       primaryColor: Colors.blue,
       appBarTheme: const AppBarTheme(
