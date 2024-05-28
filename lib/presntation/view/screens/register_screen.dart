@@ -27,7 +27,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthStates>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        if (state is AuthSuccessState) {
+          AppRouter.goAndFinish(context, AppRouter.homeRout);
+        }
+      },
       builder: (context, state) {
         var cubit = AuthCubit.get(context);
         return Scaffold(
@@ -193,14 +197,26 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     SizedBox(
                       height: context.height * 0.06,
                     ),
-                    mainButton(context, onpressd: () {
-                      if (formKey.currentState!.validate()) {
-                        cubit.userRegister(
-                            name: nameController.text,
-                            email: emailController.text,
-                            password: passwordController.text);
-                      }
-                    }, background: AppColors.black, text: "Create account"),
+                    BlocBuilder<AuthCubit, AuthStates>(
+                      builder: (context, state) {
+                        if (state is AuthLoadingState) {
+                          return CircularProgressIndicator(
+                            color: AppColors.yellow,
+                          );
+                        } else {
+                          return mainButton(context, onpressd: () {
+                            if (formKey.currentState!.validate()) {
+                              cubit.userRegister(
+                                  name: nameController.text,
+                                  email: emailController.text,
+                                  password: passwordController.text);
+                            }
+                          },
+                              background: AppColors.black,
+                              text: "Create account");
+                        }
+                      },
+                    ),
                     SizedBox(
                       height: context.height * 0.03,
                     ),

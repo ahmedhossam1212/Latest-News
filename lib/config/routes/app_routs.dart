@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:latest_news/presntation/manager/cubit/auth_cubit.dart';
+import 'package:latest_news/presntation/view/screens/home_Screen.dart';
 import 'package:latest_news/presntation/view/screens/login_screen.dart';
 import 'package:latest_news/presntation/view/screens/register_screen.dart';
 
@@ -9,6 +10,8 @@ abstract class AppRouter {
   // paths
 
   static const registerRout = '/register';
+  static const homeRout = '/home';
+
   static const loginRout = '/';
 
   // routes
@@ -21,7 +24,14 @@ abstract class AppRouter {
     ),
     GoRoute(
       path: registerRout,
-      builder: (context, state) => const RegisterScreen(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => AuthCubit(),
+        child: const RegisterScreen(),
+      ),
+    ),
+    GoRoute(
+      path: homeRout,
+      builder: (context, state) => const HomeScreen(),
     )
   ]);
 

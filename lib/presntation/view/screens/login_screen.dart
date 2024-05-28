@@ -25,7 +25,11 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthStates>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        if (state is AuthSuccessState) {
+          AppRouter.goAndFinish(context, AppRouter.homeRout);
+        }
+      },
       builder: (context, state) {
         var cubit = AuthCubit.get(context);
         return Scaffold(
@@ -138,13 +142,23 @@ class _LoginScreenState extends State<LoginScreen> {
                     SizedBox(
                       height: context.height * 0.04,
                     ),
-                    mainButton(context, onpressd: () {
-                      if (formKey.currentState!.validate()) {
-                        cubit.userLogin(
-                            email: emailController.text,
-                            password: passwordController.text);
-                      }
-                    }, background: AppColors.black, text: "Login"),
+                    BlocBuilder<AuthCubit, AuthStates>(
+                      builder: (context, state) {
+                        if (state is AuthLoadingState) {
+                          return CircularProgressIndicator(
+                            color: AppColors.yellow,
+                          );
+                        } else {
+                          return mainButton(context, onpressd: () {
+                            if (formKey.currentState!.validate()) {
+                              cubit.userLogin(
+                                  email: emailController.text,
+                                  password: passwordController.text);
+                            }
+                          }, background: AppColors.black, text: "Login");
+                        }
+                      },
+                    ),
                     SizedBox(
                       height: context.height * 0.03,
                     ),
