@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:latest_news/presntation/view/screens/register_screen.dart';
+import 'package:latest_news/config/routes/app_routs.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -7,9 +7,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      home: RegisterScreen(),
+      routerConfig: AppRouter.router,
     );
   }
 }

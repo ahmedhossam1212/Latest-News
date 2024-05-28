@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:latest_news/config/routes/app_routs.dart';
 import 'package:latest_news/core/utils/app_colors.dart';
 import 'package:latest_news/core/utils/media_query_values.dart';
 import 'package:latest_news/core/utils/style_manager.dart';
@@ -22,7 +23,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        leading: IconButton(
+            onPressed: () {
+              AppRouter.goBack(context);
+            },
+            icon: const Icon(Icons.arrow_back_ios)),
+      ),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Padding(
@@ -173,31 +180,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 isPassword: isPassword,
               ),
               SizedBox(
-                height: context.height * 0.04,
+                height: context.height * 0.06,
               ),
               mainButton(context,
-                  onpressd: () {}, background: AppColors.black, text: "Login"),
+                  onpressd: () {},
+                  background: AppColors.black,
+                  text: "Create account"),
               SizedBox(
                 height: context.height * 0.03,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Do you have account",
-                    style:
-                        getRegularStyle(color: AppColors.black, fontSize: 15),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Login",
-                      style:
-                          getBoldStyle(color: AppColors.yellow, fontSize: 15),
-                    ),
-                  )
-                ],
-              )
             ],
           ),
         ),

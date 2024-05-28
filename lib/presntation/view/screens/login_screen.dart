@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:latest_news/config/routes/app_routs.dart';
 import 'package:latest_news/core/utils/app_colors.dart';
 import 'package:latest_news/core/utils/media_query_values.dart';
 import 'package:latest_news/core/utils/style_manager.dart';
@@ -172,7 +173,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         getRegularStyle(color: AppColors.black, fontSize: 15),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      AppRouter.goPush(context, AppRouter.registerRout);
+                    },
                     child: Text(
                       "Register",
                       style:

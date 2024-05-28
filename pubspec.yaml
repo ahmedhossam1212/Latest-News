@@ -17,6 +17,7 @@ dependencies:
   dio: ^5.4.3+1
   flutter_bloc: ^8.1.5
   firebase_core: ^2.31.1
+  go_router: ^14.1.3
 
 dev_dependencies:
   flutter_test:
