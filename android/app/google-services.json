@@ -9,10 +9,23 @@
       "client_info": {
         "mobilesdk_app_id": "1:611914057044:android:4e6fb5d806b267512434c1",
         "android_client_info": {
-          "package_name": "com.example.latest_news"
+          "package_name": "com.android.application"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "611914057044-po1c7frpgijd53ftcfkb2iv495j560tn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.android.application",
+            "certificate_hash": "7cab179b242c311223164768cd7a71105f0a1499"
+          }
+        },
+        {
+          "client_id": "611914057044-pa58ma3g68lvm77uhb0a5uhph8pbn1ms.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCmnRx3eXNznQwOPWFlLobrGR6sLDExxP4"
@@ -20,7 +33,63 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "611914057044-pa58ma3g68lvm77uhb0a5uhph8pbn1ms.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "611914057044-ftvub8em6jes3ad0stdtdml0uum8rn49.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.latestNews"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:611914057044:android:fa769e5d4c0169702434c1",
+        "android_client_info": {
+          "package_name": "com.example.latest_news"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "611914057044-if4i8d0t4oj2jobqatcvp8lig2an5qmc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.latest_news",
+            "certificate_hash": "7cab179b242c311223164768cd7a71105f0a1499"
+          }
+        },
+        {
+          "client_id": "611914057044-pa58ma3g68lvm77uhb0a5uhph8pbn1ms.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmnRx3eXNznQwOPWFlLobrGR6sLDExxP4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "611914057044-pa58ma3g68lvm77uhb0a5uhph8pbn1ms.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "611914057044-ftvub8em6jes3ad0stdtdml0uum8rn49.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.latestNews"
+              }
+            }
+          ]
         }
       }
     }

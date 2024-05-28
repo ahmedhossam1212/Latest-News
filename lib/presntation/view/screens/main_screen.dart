@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:latest_news/config/routes/app_routs.dart';
+import 'package:latest_news/core/utils/app_colors.dart';
 import 'package:latest_news/presntation/manager/cubit/auth_cubit.dart';
 import 'package:latest_news/presntation/manager/states/auth_states.dart';
 
@@ -13,15 +15,23 @@ class MAinScreen extends StatelessWidget {
       builder: (context, state) {
         var cubit = AuthCubit.get(context);
         return Scaffold(
-          appBar: AppBar(),
+          appBar: AppBar(
+            leading: IconButton(
+              onPressed: () {
+                cubit.googleSignOut();
+                AppRouter.goAndFinish(context, AppRouter.loginRout);
+              },
+              icon: Icon(
+                Icons.login_outlined,
+                color: AppColors.black,
+              ),
+            ),
+          ),
           body: Column(
             children: [
-              SizedBox(
-                  width: 200,
-                  height: 300,
-                  child: Image.network(cubit.user!.photoURL!)),
-              Text(cubit.user!.displayName!),
-              Text(cubit.user!.email!),
+              SizedBox(child: Image.network(cubit.googleUser!.photoUrl!)),
+              Text(cubit.googleUser!.displayName!),
+              Text(cubit.googleUser!.email),
             ],
           ),
         );

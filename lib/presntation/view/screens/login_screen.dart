@@ -184,7 +184,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               color: AppColors.grey),
                           IconButton(
                               onPressed: () {
-                                cubit.googleSignin();
+                                cubit.signInWithGoogle(context);
                               },
                               icon: Icon(
                                 Icons.g_mobiledata_outlined,
