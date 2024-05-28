@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,6 +11,18 @@ class AuthCubit extends Cubit<AuthStates> {
   static AuthCubit get(context) => BlocProvider.of(context);
 
   UserModel? userModel;
+  User? user;
+  final FirebaseAuth auth = FirebaseAuth.instance;
+
+  void googleSignin() {
+    try {
+      GoogleAuthProvider googleAuth = GoogleAuthProvider();
+      auth.signInWithProvider(googleAuth);
+      emit(AuthSuccessState());
+    } catch (e) {
+      log(e.toString());
+    }
+  }
 
   void userLogin({required String email, required String password}) async {
     emit(AuthLoadingState());
