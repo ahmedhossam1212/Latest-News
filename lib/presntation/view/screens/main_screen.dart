@@ -27,11 +27,9 @@ class MAinScreen extends StatelessWidget {
               ),
             ),
           ),
-          body: Column(
+          body: const Column(
             children: [
-              SizedBox(child: Image.network(cubit.googleUser!.photoUrl!)),
-              Text(cubit.googleUser!.displayName!),
-              Text(cubit.googleUser!.email),
+              Text("HOME"),
             ],
           ),
         );
