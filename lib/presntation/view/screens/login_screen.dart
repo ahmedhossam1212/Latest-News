@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:latest_news/config/network/local/cach_helper.dart';
 import 'package:latest_news/config/routes/app_routs.dart';
 import 'package:latest_news/core/utils/app_colors.dart';
 import 'package:latest_news/core/utils/media_query_values.dart';
@@ -27,7 +28,9 @@ class _LoginScreenState extends State<LoginScreen> {
     return BlocConsumer<AuthCubit, AuthStates>(
       listener: (context, state) {
         if (state is AuthSuccessState) {
-          AppRouter.goAndFinish(context, AppRouter.homeRout);
+          CacheHelper.saveData(key: 'uId', value: state.uId).then((value) {
+            AppRouter.goAndFinish(context, AppRouter.homeRout);
+          });
         }
       },
       builder: (context, state) {

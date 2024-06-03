@@ -5,8 +5,8 @@ import 'package:latest_news/core/utils/app_colors.dart';
 import 'package:latest_news/presntation/manager/cubit/auth_cubit.dart';
 import 'package:latest_news/presntation/manager/states/auth_states.dart';
 
-class MAinScreen extends StatelessWidget {
-  const MAinScreen({super.key});
+class MainScreen extends StatelessWidget {
+  const MainScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +27,13 @@ class MAinScreen extends StatelessWidget {
               ),
             ),
           ),
-          body: const Column(
-            children: [
-              Text("HOME"),
-            ],
+          body: const Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("HOME"),
+              ],
+            ),
           ),
         );
       },

@@ -44,7 +44,7 @@ class AuthCubit extends Cubit<AuthStates> {
     await FirebaseAuth.instance
         .signInWithEmailAndPassword(email: email, password: password)
         .then((value) {
-      emit(AuthSuccessState());
+      emit(AuthSuccessState(value.user!.uid));
     }).catchError((err) {
       emit(AuthErrState());
     });
@@ -80,7 +80,7 @@ class AuthCubit extends Cubit<AuthStates> {
         .doc(uId)
         .set(model.toMap())
         .then((value) {
-      emit(AuthSuccessState());
+      emit(AuthSuccessState(model.uId!));
     }).catchError((error) {
       emit(AuthErrState());
     });
