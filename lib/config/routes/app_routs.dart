@@ -1,15 +1,13 @@
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:latest_news/presntation/view/screens/login_screen.dart';
+
 import 'package:latest_news/presntation/view/screens/main_screen.dart';
 import 'package:latest_news/presntation/view/screens/register_screen.dart';
 
 abstract class AppRouter {
-  static bool isLogin = false;
   // paths
-
   static const registerRout = '/register';
   static const homeRout = '/home';
   static const loginRout = '/';
@@ -17,11 +15,7 @@ abstract class AppRouter {
   // routes
 
   static final router = GoRouter(routes: [
-    GoRoute(
-      path: loginRout,
-      builder: (context, state) =>
-          isLogin ? const MainScreen() : const LoginScreen(),
-    ),
+    GoRoute(path: loginRout, builder: (context, state) => const LoginScreen()),
     GoRoute(
       path: registerRout,
       builder: (context, state) => const RegisterScreen(),

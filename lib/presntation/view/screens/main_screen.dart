@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:latest_news/config/network/local/cach_helper.dart';
 import 'package:latest_news/config/routes/app_routs.dart';
 import 'package:latest_news/core/utils/app_colors.dart';
 import 'package:latest_news/presntation/manager/cubit/auth_cubit.dart';
@@ -20,6 +21,8 @@ class MainScreen extends StatelessWidget {
               onPressed: () {
                 cubit.googleSignOut();
                 AppRouter.goAndFinish(context, AppRouter.loginRout);
+                CacheHelper.removeData(key: "uId");
+                CacheHelper.removeData(key: "Gtoken");
               },
               icon: Icon(
                 Icons.login_outlined,
