@@ -11,15 +11,15 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AuthCubit, AuthStates>(
-      listener: (context, state) {},
-      builder: (context, state) {
-        var cubit = AuthCubit.get(context);
-        return Scaffold(
-          appBar: AppBar(
-            leading: IconButton(
+    return Scaffold(
+      appBar: AppBar(
+        leading: BlocConsumer<AuthCubit, AuthStates>(
+          listener: (context, state) {},
+          builder: (context, state) {
+            return IconButton(
               onPressed: () {
-                cubit.googleSignOut();
+                var authCubit = AuthCubit.get(context);
+                authCubit.googleSignOut();
                 AppRouter.goAndFinish(context, AppRouter.loginRout);
                 CacheHelper.removeData(key: "uId");
                 CacheHelper.removeData(key: "Gtoken");
@@ -28,18 +28,16 @@ class MainScreen extends StatelessWidget {
                 Icons.login_outlined,
                 color: AppColors.black,
               ),
-            ),
-          ),
-          body: const Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("HOME"),
-              ],
-            ),
-          ),
-        );
-      },
+            );
+          },
+        ),
+      ),
+      body: const Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [Text("home")],
+        ),
+      ),
     );
   }
 }

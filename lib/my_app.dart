@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => AuthCubit(),
-        )
+        ),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
