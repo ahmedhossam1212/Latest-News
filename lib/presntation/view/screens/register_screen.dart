@@ -7,6 +7,7 @@ import 'package:latest_news/core/utils/media_query_values.dart';
 import 'package:latest_news/core/utils/style_manager.dart';
 import 'package:latest_news/presntation/manager/cubit/auth_cubit.dart';
 import 'package:latest_news/presntation/manager/states/auth_states.dart';
+import 'package:latest_news/presntation/view/widgets/app_logo.dart';
 import 'package:latest_news/presntation/view/widgets/input_feild.dart';
 import 'package:latest_news/presntation/view/widgets/main_button.dart';
 
@@ -53,42 +54,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 key: formKey,
                 child: Column(
                   children: [
-                    Row(
-                      children: [
-                        Container(
-                          width: context.width * 0.2,
-                          height: context.height * 0.05,
-                          decoration: BoxDecoration(
-                              color: AppColors.yellow,
-                              borderRadius: const BorderRadius.only(
-                                  topLeft: Radius.circular(8),
-                                  bottomLeft: Radius.circular(8))),
-                          child: Center(
-                            child: Text(
-                              "Latest",
-                              style: getBoldStyle(
-                                  color: AppColors.white, fontSize: 22),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          width: context.width * 0.2,
-                          height: context.height * 0.05,
-                          decoration: BoxDecoration(
-                              color: AppColors.black,
-                              borderRadius: const BorderRadius.only(
-                                  topRight: Radius.circular(8),
-                                  bottomRight: Radius.circular(8))),
-                          child: Center(
-                            child: Text(
-                              "News",
-                              style: getBoldStyle(
-                                  color: AppColors.white, fontSize: 22),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                    buildAppLogo(context),
                     SizedBox(
                       height: context.height * 0.05,
                     ),
