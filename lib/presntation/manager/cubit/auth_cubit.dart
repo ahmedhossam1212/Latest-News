@@ -40,6 +40,10 @@ class AuthCubit extends Cubit<AuthStates> {
     CacheHelper.saveData(key: 'email', value: googleUser!.email);
   }
 
+  void logout() {
+    FirebaseAuth.instance.signOut();
+  }
+
   void googleSignOut() {
     GoogleSignIn().disconnect();
   }

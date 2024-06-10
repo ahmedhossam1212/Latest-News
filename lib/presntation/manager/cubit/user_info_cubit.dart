@@ -13,8 +13,6 @@ class UserInfoCubit extends Cubit<UserInfoStates> {
   static UserInfoCubit get(context) => BlocProvider.of(context);
 
   UserModel? userModel;
-  String name = CacheHelper.getData(key: 'userName');
-  String email = CacheHelper.getData(key: 'email');
 
   void getUserInfo() {
     emit(UserInfoLoadingState());

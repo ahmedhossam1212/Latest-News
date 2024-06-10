@@ -20,11 +20,11 @@ class ProfileScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "name", // "${cubit.userModel!.name}",
+                  "${cubit.userModel!.name}",
                   style: getSemiBoldStyle(color: AppColors.black, fontSize: 25),
                 ),
                 Text(
-                  "email",
+                  "${cubit.userModel!.email}",
                   style: getLightStyle(color: AppColors.grey, fontSize: 20),
                 ),
               ],
