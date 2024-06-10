@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:latest_news/config/network/local/cach_helper.dart';
 import 'package:latest_news/config/routes/app_routs.dart';
 import 'package:latest_news/core/utils/app_colors.dart';
@@ -32,7 +31,6 @@ class MainScreenState extends State<MainScreen> {
     super.initState();
   }
 
-  GoogleSignInAccount? googleSignInAccount;
   @override
   Widget build(BuildContext context) {
     double displayWidth = MediaQuery.of(context).size.width;
@@ -194,6 +192,6 @@ class MainScreenState extends State<MainScreen> {
     const FeedsScreen(),
     const CategoryScreen(),
     const SettingsScreen(),
-    ProfileScreen()
+    const ProfileScreen()
   ];
 }
