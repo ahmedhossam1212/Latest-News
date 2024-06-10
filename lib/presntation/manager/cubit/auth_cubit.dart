@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -37,6 +36,8 @@ class AuthCubit extends Cubit<AuthStates> {
     // ignore: use_build_context_synchronously
     AppRouter.goAndFinish(context, AppRouter.homeRout);
     CacheHelper.saveData(key: 'Gtoken', value: googleAuth.accessToken);
+    CacheHelper.saveData(key: 'userName', value: googleUser!.displayName);
+    CacheHelper.saveData(key: 'email', value: googleUser!.email);
   }
 
   void googleSignOut() {

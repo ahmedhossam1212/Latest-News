@@ -1,7 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:latest_news/config/network/constanc.dart';
+import 'package:latest_news/presntation/manager/cubit/user_info_cubit.dart';
 import 'package:latest_news/presntation/view/screens/login_screen.dart';
 
 import 'package:latest_news/presntation/view/screens/main_screen.dart';
@@ -26,7 +28,11 @@ abstract class AppRouter {
         ),
         GoRoute(
           path: homeRout,
-          builder: (context, state) => const MainScreen(),
+          builder: (context, state) => MultiBlocProvider(providers: [
+            BlocProvider(
+              create: (context) => UserInfoCubit(),
+            )
+          ], child: const MainScreen()),
         )
       ]);
 

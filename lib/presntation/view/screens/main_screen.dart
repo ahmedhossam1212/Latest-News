@@ -1,6 +1,3 @@
-import 'dart:developer';
-
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -9,6 +6,7 @@ import 'package:latest_news/config/network/local/cach_helper.dart';
 import 'package:latest_news/config/routes/app_routs.dart';
 import 'package:latest_news/core/utils/app_colors.dart';
 import 'package:latest_news/presntation/manager/cubit/auth_cubit.dart';
+import 'package:latest_news/presntation/manager/cubit/user_info_cubit.dart';
 import 'package:latest_news/presntation/view/screens/category_screen.dart';
 import 'package:latest_news/presntation/view/screens/feeds_screen.dart';
 import 'package:latest_news/presntation/view/screens/profile_screen.dart';
@@ -24,6 +22,15 @@ class MainScreen extends StatefulWidget {
 
 class MainScreenState extends State<MainScreen> {
   var currentIndex = 0;
+  @override
+  void initState() {
+    setState(() {
+      UserInfoCubit.get(context).getUserInfo();
+    });
+    super.initState();
+  }
+
+  GoogleSignInAccount? googleSignInAccount;
   @override
   Widget build(BuildContext context) {
     double displayWidth = MediaQuery.of(context).size.width;
@@ -41,6 +48,8 @@ class MainScreenState extends State<MainScreen> {
                 CacheHelper.removeData(key: 'uId');
                 CacheHelper.removeData(key: 'Gtoken');
                 AppRouter.goAndFinish(context, AppRouter.loginRout);
+                CacheHelper.removeData(key: 'email');
+                CacheHelper.removeData(key: 'userName');
               },
               icon: const Icon(Icons.login))
         ],
@@ -173,6 +182,6 @@ class MainScreenState extends State<MainScreen> {
     const FeedsScreen(),
     const CategoryScreen(),
     const SettingsScreen(),
-    const ProfileScreen()
+    ProfileScreen()
   ];
 }

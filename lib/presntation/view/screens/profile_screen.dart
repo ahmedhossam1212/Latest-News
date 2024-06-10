@@ -15,13 +15,20 @@ class ProfileScreen extends StatelessWidget {
       builder: (context, state) {
         var cubit = UserInfoCubit.get(context);
         return Scaffold(
-          body: Column(
-            children: [
-              Text(
-                "${cubit.userModel!.name}",
-                style: getSemiBoldStyle(color: AppColors.black, fontSize: 25),
-              ),
-            ],
+          body: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "name", // "${cubit.userModel!.name}",
+                  style: getSemiBoldStyle(color: AppColors.black, fontSize: 25),
+                ),
+                Text(
+                  "email",
+                  style: getLightStyle(color: AppColors.grey, fontSize: 20),
+                ),
+              ],
+            ),
           ),
         );
       },
