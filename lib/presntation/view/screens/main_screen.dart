@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:latest_news/config/network/constanc.dart';
 import 'package:latest_news/config/network/local/cach_helper.dart';
 import 'package:latest_news/config/routes/app_routs.dart';
 import 'package:latest_news/core/utils/app_colors.dart';
@@ -25,9 +26,7 @@ class MainScreenState extends State<MainScreen> {
   var currentIndex = 0;
   @override
   void initState() {
-    setState(() {
-      UserInfoCubit.get(context).getUserInfo();
-    });
+    UserInfoCubit.get(context).getUserInfo();
     super.initState();
   }
 
@@ -35,7 +34,11 @@ class MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     double displayWidth = MediaQuery.of(context).size.width;
     return BlocConsumer<AuthCubit, AuthStates>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        if (state is AuthSuccessState) {
+          AppRouter.goAndFinish(context, AppRouter.loginRout);
+        }
+      },
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
@@ -47,13 +50,13 @@ class MainScreenState extends State<MainScreen> {
             actions: [
               IconButton(
                   onPressed: () {
-                    setState(() {
-                      AuthCubit.get(context).googleSignOut();
-                      AuthCubit.get(context).logout();
-                      CacheHelper.removeData(key: 'uId');
-                      CacheHelper.removeData(key: 'Gtoken');
-                      AppRouter.goAndFinish(context, AppRouter.loginRout);
+                    CacheHelper.removeData(key: 'uId').then((value) {
+                      if (value) {
+                        AppRouter.goAndFinish(context, AppRouter.loginRout);
+                      }
                     });
+                    AuthCubit.get(context).googleSignOut(context);
+                    AuthCubit.get(context).logout(context);
                   },
                   icon: const Icon(Icons.login))
             ],

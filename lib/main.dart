@@ -15,9 +15,8 @@ void main() async {
 
   await CacheHelper.init();
   uId = CacheHelper.getData(key: "uId");
-  token = CacheHelper.getData(key: 'Gtoken');
+
   log("UID :::  ${CacheHelper.getData(key: "uId")}");
-  log(" ACCESS TOKEN ::: ${CacheHelper.getData(key: "Gtoken")}");
 
   runApp(const MyApp());
 }

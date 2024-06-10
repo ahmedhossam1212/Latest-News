@@ -17,24 +17,22 @@ abstract class AppRouter {
 
   // routes
 
-  static final router = GoRouter(
-      initialLocation: token != null || uId != null ? '/home' : '/',
-      routes: [
-        GoRoute(
-            path: loginRout, builder: (context, state) => const LoginScreen()),
-        GoRoute(
-          path: registerRout,
-          builder: (context, state) => const RegisterScreen(),
-        ),
-        GoRoute(
-          path: homeRout,
-          builder: (context, state) => MultiBlocProvider(providers: [
-            BlocProvider(
-              create: (context) => UserInfoCubit(),
-            )
-          ], child: const MainScreen()),
+  static final router =
+      GoRouter(initialLocation: uId != null ? '/home' : '/', routes: [
+    GoRoute(path: loginRout, builder: (context, state) => const LoginScreen()),
+    GoRoute(
+      path: registerRout,
+      builder: (context, state) => const RegisterScreen(),
+    ),
+    GoRoute(
+      path: homeRout,
+      builder: (context, state) => MultiBlocProvider(providers: [
+        BlocProvider(
+          create: (context) => UserInfoCubit(),
         )
-      ]);
+      ], child: const MainScreen()),
+    )
+  ]);
 
   // methods
 

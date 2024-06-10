@@ -15,36 +15,45 @@ class AuthCubit extends Cubit<AuthStates> {
   static AuthCubit get(context) => BlocProvider.of(context);
 
   UserModel? userModel;
-
+  UserCredential? user;
   late final GoogleSignInAccount? googleUser;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
   Future signInWithGoogle(BuildContext context) async {
-    googleUser = await GoogleSignIn().signIn();
-    if (googleUser == null) {
-      return;
+    emit(AuthLoadingState());
+    try {
+      googleUser = await GoogleSignIn().signIn();
+      if (googleUser == null) {
+        return;
+      }
+      final GoogleSignInAuthentication googleAuth =
+          await googleUser!.authentication;
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+
+      await _auth.signInWithCredential(credential);
+      CacheHelper.saveData(key: 'uId', value: _auth.currentUser!.uid);
+      userCreate(
+          email: _auth.currentUser!.email!,
+          uId: _auth.currentUser!.uid,
+          name: _auth.currentUser!.displayName!);
+      // ignore: use_build_context_synchronously
+      AppRouter.goAndFinish(context, AppRouter.homeRout);
+
+      log(" google data :: ${_auth.currentUser!.uid}");
+      emit(AuthSuccessState(_auth.currentUser!.uid));
+    } catch (e) {
+      emit(AuthErrState());
     }
-
-    final GoogleSignInAuthentication googleAuth =
-        await googleUser!.authentication;
-
-    final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth.accessToken,
-      idToken: googleAuth.idToken,
-    );
-
-    await FirebaseAuth.instance.signInWithCredential(credential);
-
-    // ignore: use_build_context_synchronously
-    AppRouter.goAndFinish(context, AppRouter.homeRout);
-    CacheHelper.saveData(key: 'Gtoken', value: googleAuth.accessToken);
-    CacheHelper.saveData(key: 'userName', value: googleUser!.displayName);
-    CacheHelper.saveData(key: 'email', value: googleUser!.email);
   }
 
-  void logout() {
+  void logout(BuildContext context) {
     FirebaseAuth.instance.signOut();
   }
 
-  void googleSignOut() {
+  void googleSignOut(BuildContext context) {
     GoogleSignIn().disconnect();
   }
 
