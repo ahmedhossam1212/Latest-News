@@ -1,7 +1,9 @@
 import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:latest_news/config/network/constanc.dart';
 import 'package:latest_news/models/user_model.dart';
 import 'package:latest_news/presntation/manager/states/user_info_states.dart';
@@ -12,6 +14,9 @@ class UserInfoCubit extends Cubit<UserInfoStates> {
   static UserInfoCubit get(context) => BlocProvider.of(context);
 
   UserModel? userModel;
+  User? user;
+  GoogleAuthCredential? googleAuthCredential;
+  GoogleSignInAccount? googleSignInAccount;
 
   void getUserInfo() {
     emit(UserInfoLoadingState());
@@ -22,7 +27,7 @@ class UserInfoCubit extends Cubit<UserInfoStates> {
       emit(UserInfoSuccesState());
     }).catchError((error) {
       log(error.toString());
-      emit(UserInfoLoadingState());
+      emit(UserInfoErrState());
     });
   }
 }

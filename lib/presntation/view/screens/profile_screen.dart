@@ -1,17 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:latest_news/core/utils/app_colors.dart';
+import 'package:latest_news/core/utils/style_manager.dart';
+import 'package:latest_news/presntation/manager/cubit/user_info_cubit.dart';
+import 'package:latest_news/presntation/manager/states/user_info_states.dart';
 
-class ProfileScreen extends StatefulWidget {
+class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
   @override
-  State<ProfileScreen> createState() => _ProfileScreenState();
-}
-
-class _ProfileScreenState extends State<ProfileScreen> {
-  @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: Text("Profile Screen")),
+    return BlocConsumer<UserInfoCubit, UserInfoStates>(
+      listener: (context, state) {},
+      builder: (context, state) {
+        var cubit = UserInfoCubit.get(context);
+        return Scaffold(
+          body: Column(
+            children: [
+              Text(
+                "${cubit.userModel!.name}",
+                style: getSemiBoldStyle(color: AppColors.black, fontSize: 25),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

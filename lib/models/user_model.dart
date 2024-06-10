@@ -1,3 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
+
+GoogleAuthCredential? googleAuthCredential;
+
 class UserModel {
   String? email;
   String? name;
@@ -6,7 +10,7 @@ class UserModel {
   UserModel({this.email, this.uId, this.name});
   UserModel.fromJason(Map<String, dynamic> json) {
     email = json['email'];
-    uId = json['uId'];
+    uId = json['uId'] ?? googleAuthCredential!.idToken;
     name = json["name"];
   }
 

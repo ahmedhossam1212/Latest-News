@@ -1,7 +1,14 @@
+import 'dart:developer';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:latest_news/config/network/local/cach_helper.dart';
+import 'package:latest_news/config/routes/app_routs.dart';
 import 'package:latest_news/core/utils/app_colors.dart';
+import 'package:latest_news/presntation/manager/cubit/auth_cubit.dart';
 import 'package:latest_news/presntation/view/screens/category_screen.dart';
 import 'package:latest_news/presntation/view/screens/feeds_screen.dart';
 import 'package:latest_news/presntation/view/screens/profile_screen.dart';
@@ -17,7 +24,6 @@ class MainScreen extends StatefulWidget {
 
 class MainScreenState extends State<MainScreen> {
   var currentIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     double displayWidth = MediaQuery.of(context).size.width;
@@ -28,6 +34,16 @@ class MainScreenState extends State<MainScreen> {
           child: buildAppLogo(context),
         ),
         leadingWidth: double.infinity,
+        actions: [
+          IconButton(
+              onPressed: () {
+                AuthCubit.get(context).googleSignOut();
+                CacheHelper.removeData(key: 'uId');
+                CacheHelper.removeData(key: 'Gtoken');
+                AppRouter.goAndFinish(context, AppRouter.loginRout);
+              },
+              icon: const Icon(Icons.login))
+        ],
       ),
       body: screens[currentIndex],
       bottomNavigationBar: Container(

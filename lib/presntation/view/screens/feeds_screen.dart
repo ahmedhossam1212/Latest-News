@@ -11,8 +11,11 @@ class _FeedsScreenState extends State<FeedsScreen> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Column(
-        children: [],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [Text("Feeds")],
+        ),
       ),
     );
   }
