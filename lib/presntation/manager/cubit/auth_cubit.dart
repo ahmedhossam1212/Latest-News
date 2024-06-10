@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:latest_news/config/network/constanc.dart';
 import 'package:latest_news/config/network/local/cach_helper.dart';
 import 'package:latest_news/config/routes/app_routs.dart';
 import 'package:latest_news/models/user_model.dart';
@@ -34,7 +35,8 @@ class AuthCubit extends Cubit<AuthStates> {
       );
 
       await _auth.signInWithCredential(credential);
-      CacheHelper.saveData(key: 'uId', value: _auth.currentUser!.uid);
+      uId =
+          "${CacheHelper.saveData(key: 'uId', value: _auth.currentUser!.uid)}";
       userCreate(
           email: _auth.currentUser!.email!,
           uId: _auth.currentUser!.uid,
@@ -47,14 +49,6 @@ class AuthCubit extends Cubit<AuthStates> {
     } catch (e) {
       emit(AuthErrState());
     }
-  }
-
-  void logout(BuildContext context) {
-    FirebaseAuth.instance.signOut();
-  }
-
-  void googleSignOut(BuildContext context) {
-    GoogleSignIn().disconnect();
   }
 
   void userLogin({required String email, required String password}) async {
@@ -102,5 +96,13 @@ class AuthCubit extends Cubit<AuthStates> {
     }).catchError((error) {
       emit(AuthErrState());
     });
+  }
+
+  void logout(BuildContext context) {
+    FirebaseAuth.instance.signOut();
+  }
+
+  void googleSignOut(BuildContext context) {
+    GoogleSignIn().disconnect();
   }
 }

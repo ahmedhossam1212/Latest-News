@@ -26,7 +26,8 @@ class MainScreenState extends State<MainScreen> {
   var currentIndex = 0;
   @override
   void initState() {
-    UserInfoCubit.get(context).getUserInfo();
+    UserInfoCubit.get(context).getUserInfo(uId: uId!);
+    setState(() {});
     super.initState();
   }
 
@@ -34,11 +35,7 @@ class MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     double displayWidth = MediaQuery.of(context).size.width;
     return BlocConsumer<AuthCubit, AuthStates>(
-      listener: (context, state) {
-        if (state is AuthSuccessState) {
-          AppRouter.goAndFinish(context, AppRouter.loginRout);
-        }
-      },
+      listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(

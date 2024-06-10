@@ -15,7 +15,6 @@ void main() async {
 
   await CacheHelper.init();
   uId = CacheHelper.getData(key: "uId");
-
   log("UID :::  ${CacheHelper.getData(key: "uId")}");
 
   runApp(const MyApp());
