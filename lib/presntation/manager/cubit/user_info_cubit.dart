@@ -12,13 +12,16 @@ class UserInfoCubit extends Cubit<UserInfoStates> {
 
   UserModel? userModel;
 
-  void getUserInfo({required String uId}) {
+  void getUserInfo({required String uId}) async {
     emit(UserInfoLoadingState());
 
-    FirebaseFirestore.instance.collection('users').doc(uId).get().then((value) {
+    await FirebaseFirestore.instance
+        .collection('users')
+        .doc(uId)
+        .get()
+        .then((value) {
       userModel = UserModel.fromJason(value.data()!);
       emit(UserInfoSuccesState());
-      log("${value.data()}");
     }).catchError((error) {
       log(error.toString());
       emit(UserInfoErrState());

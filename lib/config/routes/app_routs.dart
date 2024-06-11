@@ -26,11 +26,14 @@ abstract class AppRouter {
     ),
     GoRoute(
       path: homeRout,
-      builder: (context, state) => MultiBlocProvider(providers: [
-        BlocProvider(
-          create: (context) => UserInfoCubit(),
-        )
-      ], child: const MainScreen()),
+      builder: (context, state) => MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => UserInfoCubit()..getUserInfo(uId: uId!),
+          )
+        ],
+        child: const MainScreen(),
+      ),
     )
   ]);
 
