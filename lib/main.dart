@@ -1,8 +1,6 @@
-import 'dart:developer';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:latest_news/config/network/constanc.dart';
 import 'package:latest_news/config/network/local/cach_helper.dart';
 import 'package:latest_news/my_app.dart';
 import 'firebase_options.dart';
@@ -14,8 +12,6 @@ void main() async {
   );
 
   await CacheHelper.init();
-  uId = CacheHelper.getData(key: "uId");
-  log("UID :::  ${CacheHelper.getData(key: "uId")}");
 
   runApp(const MyApp());
 }

@@ -23,7 +23,6 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController passwordController = TextEditingController();
   bool isPassword = true;
   var formKey = GlobalKey<FormState>();
-
   @override
   void dispose() {
     emailController.dispose();

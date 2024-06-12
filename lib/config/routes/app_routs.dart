@@ -18,7 +18,7 @@ abstract class AppRouter {
   // routes
 
   static final router =
-      GoRouter(initialLocation: uId != null ? '/home' : '/', routes: [
+      GoRouter(initialLocation: isLogin! ? '/home' : '/', routes: [
     GoRoute(path: loginRout, builder: (context, state) => const LoginScreen()),
     GoRoute(
       path: registerRout,

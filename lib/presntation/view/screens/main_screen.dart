@@ -1,12 +1,11 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:latest_news/config/network/constanc.dart';
 import 'package:latest_news/config/network/local/cach_helper.dart';
-import 'package:latest_news/config/routes/app_routs.dart';
 import 'package:latest_news/core/utils/app_colors.dart';
-import 'package:latest_news/presntation/manager/cubit/auth_cubit.dart';
 import 'package:latest_news/presntation/manager/cubit/navbar_cubit.dart';
-import 'package:latest_news/presntation/manager/states/auth_states.dart';
 import 'package:latest_news/presntation/manager/states/navbar_states.dart';
 import 'package:latest_news/presntation/view/widgets/app_logo.dart';
 
@@ -18,12 +17,13 @@ class MainScreen extends StatefulWidget {
 }
 
 class MainScreenState extends State<MainScreen> {
-  // @override
-  // void initState() {
-  //   UserInfoCubit.get(context).getUserInfo(uId: uId!);
-  //   setState(() {});
-  //   super.initState();
-  // }
+  @override
+  void initState() {
+    uId = CacheHelper.getData(key: "uId");
+    log(uId!);
+    setState(() {});
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,25 +42,6 @@ class MainScreenState extends State<MainScreen> {
                 child: buildAppLogo(context),
               ),
               leadingWidth: double.infinity,
-              actions: [
-                BlocConsumer<AuthCubit, AuthStates>(
-                  listener: (context, state) {},
-                  builder: (context, state) {
-                    return IconButton(
-                        onPressed: () {
-                          CacheHelper.removeData(key: 'uId').then((value) {
-                            if (value) {
-                              AppRouter.goAndFinish(
-                                  context, AppRouter.loginRout);
-                            }
-                          });
-                          AuthCubit.get(context).googleSignOut(context);
-                          AuthCubit.get(context).logout(context);
-                        },
-                        icon: const Icon(Icons.login));
-                  },
-                )
-              ],
             ),
             body: cubit.screens[cubit.currentIndex],
             bottomNavigationBar: Container(

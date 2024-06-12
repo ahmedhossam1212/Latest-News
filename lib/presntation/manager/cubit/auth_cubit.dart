@@ -1,13 +1,8 @@
-import 'dart:developer';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:latest_news/config/network/constanc.dart';
-import 'package:latest_news/config/network/local/cach_helper.dart';
-import 'package:latest_news/config/routes/app_routs.dart';
 import 'package:latest_news/models/user_model.dart';
 import 'package:latest_news/presntation/manager/states/auth_states.dart';
 
@@ -35,16 +30,13 @@ class AuthCubit extends Cubit<AuthStates> {
       );
 
       await _auth.signInWithCredential(credential);
-      uId =
-          "${CacheHelper.saveData(key: 'uId', value: _auth.currentUser!.uid)}";
+
       userCreate(
           email: _auth.currentUser!.email!,
+          image: _auth.currentUser!.photoURL!,
           uId: _auth.currentUser!.uid,
           name: _auth.currentUser!.displayName!);
-      // ignore: use_build_context_synchronously
-      AppRouter.goAndFinish(context, AppRouter.homeRout);
 
-      log(" google data :: ${_auth.currentUser!.uid}");
       emit(AuthSuccessState(_auth.currentUser!.uid));
     } catch (e) {
       emit(AuthErrState());
@@ -74,7 +66,12 @@ class AuthCubit extends Cubit<AuthStates> {
       password: password,
     )
         .then((value) {
-      userCreate(email: email, uId: value.user!.uid, name: name);
+      userCreate(
+          email: email,
+          uId: value.user!.uid,
+          name: name,
+          image:
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0LRALBrAWCugelYmEeNT8WqwO5yLUM_42b12eNED4Ku1E6GrnF6tmvYMI56NtDxKKWg8&usqp=CAU");
     }).catchError((err) {
       emit(AuthErrState());
     });
@@ -84,8 +81,10 @@ class AuthCubit extends Cubit<AuthStates> {
     required String email,
     required String uId,
     required String name,
+    required String image,
   }) {
-    UserModel model = UserModel(email: email, uId: uId, name: name);
+    UserModel model =
+        UserModel(email: email, uId: uId, name: name, image: image);
 
     FirebaseFirestore.instance
         .collection('users')
