@@ -1,2 +1,2 @@
 String? uId;
-bool? isLogin;
+bool isLogin = false;

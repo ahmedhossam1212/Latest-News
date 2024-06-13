@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:latest_news/config/network/local/cach_helper.dart';
 import 'package:latest_news/config/routes/app_routs.dart';
 import 'package:latest_news/core/utils/app_colors.dart';
@@ -23,18 +26,12 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController passwordController = TextEditingController();
   bool isPassword = true;
   var formKey = GlobalKey<FormState>();
-  @override
-  void dispose() {
-    emailController.dispose();
-    passwordController.dispose();
-
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthStates>(
       listener: (context, state) {
+        log("$state");
         if (state is AuthSuccessState) {
           CacheHelper.saveData(key: 'uId', value: state.uId).then((value) {
             AppRouter.goAndFinish(context, AppRouter.homeRout);
@@ -160,7 +157,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               color: AppColors.grey),
                           IconButton(
                               onPressed: () {
-                                cubit.signInWithGoogle(context);
+                                cubit.signInWithGoogle();
                               },
                               icon: Icon(
                                 Icons.g_mobiledata_outlined,

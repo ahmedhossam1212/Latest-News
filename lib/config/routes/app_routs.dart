@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -14,11 +15,12 @@ abstract class AppRouter {
   static const registerRout = '/register';
   static const homeRout = '/home';
   static const loginRout = '/';
+  late User user;
 
   // routes
 
   static final router =
-      GoRouter(initialLocation: isLogin! ? '/home' : '/', routes: [
+      GoRouter(initialLocation: uId != null ? '/home' : '/', routes: [
     GoRoute(path: loginRout, builder: (context, state) => const LoginScreen()),
     GoRoute(
       path: registerRout,

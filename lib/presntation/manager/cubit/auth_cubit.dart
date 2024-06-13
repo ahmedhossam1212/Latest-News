@@ -14,33 +14,29 @@ class AuthCubit extends Cubit<AuthStates> {
   UserCredential? user;
   late final GoogleSignInAccount? googleUser;
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  static final googleSignIn = GoogleSignIn();
 
-  Future signInWithGoogle(BuildContext context) async {
-    emit(AuthLoadingState());
-    try {
-      googleUser = await GoogleSignIn().signIn();
-      if (googleUser == null) {
-        return;
-      }
-      final GoogleSignInAuthentication googleAuth =
-          await googleUser!.authentication;
-      final credential = GoogleAuthProvider.credential(
-        accessToken: googleAuth.accessToken,
-        idToken: googleAuth.idToken,
-      );
-
-      await _auth.signInWithCredential(credential);
-
-      userCreate(
-          email: _auth.currentUser!.email!,
-          image: _auth.currentUser!.photoURL!,
-          uId: _auth.currentUser!.uid,
-          name: _auth.currentUser!.displayName!);
-
-      emit(AuthSuccessState(_auth.currentUser!.uid));
-    } catch (e) {
-      emit(AuthErrState());
+  Future signInWithGoogle() async {
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+    if (googleUser == null) {
+      return;
     }
+    final GoogleSignInAuthentication googleAuth =
+        await googleUser.authentication;
+
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
+
+    await _auth.signInWithCredential(credential);
+    userCreate(
+        email: _auth.currentUser!.email!,
+        image: _auth.currentUser!.photoURL!,
+        uId: _auth.currentUser!.uid,
+        name: _auth.currentUser!.displayName!);
+    emit(AuthSuccessState(_auth.currentUser!.uid));
+    return await FirebaseAuth.instance.signInWithCredential(credential);
   }
 
   void userLogin({required String email, required String password}) async {
@@ -101,7 +97,7 @@ class AuthCubit extends Cubit<AuthStates> {
     FirebaseAuth.instance.signOut();
   }
 
-  void googleSignOut(BuildContext context) {
-    GoogleSignIn().disconnect();
+  googleSignOut() async {
+    googleSignIn.disconnect();
   }
 }

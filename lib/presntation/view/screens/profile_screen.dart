@@ -57,7 +57,7 @@ class ProfileScreen extends StatelessWidget {
                               onPressed: () {
                                 CacheHelper.removeData(key: 'uId');
 
-                                AuthCubit.get(context).googleSignOut(context);
+                                AuthCubit.get(context).googleSignOut();
                                 AuthCubit.get(context).logout(context);
 
                                 AppRouter.goAndFinish(
