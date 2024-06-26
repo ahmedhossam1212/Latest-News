@@ -52,7 +52,7 @@ class HollywoodCard extends StatelessWidget {
           ),
         ),
         Container(
-          height: 260,
+          height: context.height * 0.275,
           width: double.infinity,
           decoration: BoxDecoration(
               color: Colors.black.withOpacity(0.5),
@@ -117,7 +117,7 @@ class GazaCard extends StatelessWidget {
           ),
         ),
         Container(
-          height: 260,
+          height: context.height * 0.275,
           width: double.infinity,
           decoration: BoxDecoration(
               color: Colors.black.withOpacity(0.5),
@@ -182,7 +182,7 @@ class PremierLeagueCard extends StatelessWidget {
           ),
         ),
         Container(
-          height: 260,
+          height: context.height * 0.275,
           width: double.infinity,
           decoration: BoxDecoration(
               color: Colors.black.withOpacity(0.5),

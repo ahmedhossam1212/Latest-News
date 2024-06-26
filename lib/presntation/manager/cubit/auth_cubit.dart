@@ -28,6 +28,7 @@ class AuthCubit extends Cubit<AuthStates> {
       idToken: googleAuth.idToken,
     );
 
+    await _auth.signInWithCredential(credential);
     userCreate(
         email: _auth.currentUser!.email!,
         image: _auth.currentUser!.photoURL!,
