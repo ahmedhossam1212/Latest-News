@@ -10,7 +10,6 @@ import 'package:latest_news/presntation/view/screens/register_screen.dart';
 import 'package:latest_news/presntation/view/widgets/gaza_webview.dart';
 import 'package:latest_news/presntation/view/widgets/hollywood_web_view.dart';
 import 'package:latest_news/presntation/view/widgets/premierleague_webview.dart';
-import 'package:latest_news/presntation/view/widgets/slider.dart';
 
 abstract class AppRouter {
   // paths
