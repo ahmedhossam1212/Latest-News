@@ -1,5 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -9,13 +7,19 @@ import 'package:latest_news/presntation/view/screens/login_screen.dart';
 
 import 'package:latest_news/presntation/view/screens/main_screen.dart';
 import 'package:latest_news/presntation/view/screens/register_screen.dart';
+import 'package:latest_news/presntation/view/widgets/gaza_webview.dart';
+import 'package:latest_news/presntation/view/widgets/hollywood_web_view.dart';
+import 'package:latest_news/presntation/view/widgets/premierleague_webview.dart';
+import 'package:latest_news/presntation/view/widgets/slider.dart';
 
 abstract class AppRouter {
   // paths
   static const registerRout = '/register';
   static const homeRout = '/home';
   static const loginRout = '/';
-  late User user;
+  static const hollywoodWebV = '/hollywoodWebV';
+  static const gazaWebV = '/gazaWebV';
+  static const premierLeagueWebV = '/premierLeagueWebV';
 
   // routes
 
@@ -36,7 +40,19 @@ abstract class AppRouter {
         ],
         child: const MainScreen(),
       ),
-    )
+    ),
+    GoRoute(
+      path: hollywoodWebV,
+      builder: (context, state) => const HollywoodWebView(),
+    ),
+    GoRoute(
+      path: gazaWebV,
+      builder: (context, state) => const GazaWebView(),
+    ),
+    GoRoute(
+      path: premierLeagueWebV,
+      builder: (context, state) => const PremierleagueWebview(),
+    ),
   ]);
 
   // methods

@@ -11,8 +11,7 @@ class AuthCubit extends Cubit<AuthStates> {
   static AuthCubit get(context) => BlocProvider.of(context);
 
   UserModel? userModel;
-  UserCredential? user;
-  late final GoogleSignInAccount? googleUser;
+  late final GoogleSignInAccount googleUser;
   final FirebaseAuth _auth = FirebaseAuth.instance;
   static final googleSignIn = GoogleSignIn();
 
@@ -29,7 +28,6 @@ class AuthCubit extends Cubit<AuthStates> {
       idToken: googleAuth.idToken,
     );
 
-    await _auth.signInWithCredential(credential);
     userCreate(
         email: _auth.currentUser!.email!,
         image: _auth.currentUser!.photoURL!,
