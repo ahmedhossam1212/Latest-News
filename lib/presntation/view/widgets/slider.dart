@@ -72,7 +72,7 @@ class HollywoodCard extends StatelessWidget {
                   style: getRegularStyle(color: AppColors.white, fontSize: 15),
                 ),
                 SizedBox(
-                  height: context.height * 0.13,
+                  height: context.height * 0.109,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -138,7 +138,7 @@ class GazaCard extends StatelessWidget {
                   style: getRegularStyle(color: AppColors.white, fontSize: 15),
                 ),
                 SizedBox(
-                  height: context.height * 0.13,
+                  height: context.height * 0.109,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -204,7 +204,7 @@ class PremierLeagueCard extends StatelessWidget {
                   style: getRegularStyle(color: AppColors.white, fontSize: 15),
                 ),
                 SizedBox(
-                  height: context.height * 0.13,
+                  height: context.height * 0.109,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
