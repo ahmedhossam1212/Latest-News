@@ -24,6 +24,7 @@ dependencies:
   shared_preferences: ^2.2.3
   carousel_slider: ^4.2.1
   webview_flutter: ^4.8.0
+  flutter_svg: ^2.0.10+1
 
 dev_dependencies:
   flutter_test:
@@ -42,6 +43,7 @@ flutter:
   
   assets:
      - assets/images/
+     - assets/logos/
   #   - images/a_dot_ham.jpeg
 
   

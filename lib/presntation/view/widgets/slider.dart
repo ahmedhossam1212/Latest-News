@@ -17,7 +17,7 @@ Widget buildSlider(BuildContext context) => SizedBox(
       child: CarouselSlider(
           items: sliderList,
           options: CarouselOptions(
-            height: 400,
+            height: context.height * 0.38,
             aspectRatio: 16 / 9,
             viewportFraction: 1,
             initialPage: 0,
@@ -52,7 +52,7 @@ class HollywoodCard extends StatelessWidget {
           ),
         ),
         Container(
-          height: context.height * 0.275,
+          height: context.height * 0.31,
           width: double.infinity,
           decoration: BoxDecoration(
               color: Colors.black.withOpacity(0.5),
@@ -70,8 +70,8 @@ class HollywoodCard extends StatelessWidget {
                   "Follow the most important events within the American artistic community",
                   style: getRegularStyle(color: AppColors.white, fontSize: 15),
                 ),
-                const SizedBox(
-                  height: 100,
+                SizedBox(
+                  height: context.height * 0.13,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -117,7 +117,7 @@ class GazaCard extends StatelessWidget {
           ),
         ),
         Container(
-          height: context.height * 0.275,
+          height: context.height * 0.31,
           width: double.infinity,
           decoration: BoxDecoration(
               color: Colors.black.withOpacity(0.5),
@@ -135,8 +135,8 @@ class GazaCard extends StatelessWidget {
                   "Follow the events of the war in Gaza and the effects of the brutal occupation on civilians",
                   style: getRegularStyle(color: AppColors.white, fontSize: 15),
                 ),
-                const SizedBox(
-                  height: 100,
+                SizedBox(
+                  height: context.height * 0.13,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -182,7 +182,7 @@ class PremierLeagueCard extends StatelessWidget {
           ),
         ),
         Container(
-          height: context.height * 0.275,
+          height: context.height * 0.31,
           width: double.infinity,
           decoration: BoxDecoration(
               color: Colors.black.withOpacity(0.5),
@@ -200,8 +200,8 @@ class PremierLeagueCard extends StatelessWidget {
                   "The events of the English Premier League have become interesting. Take a look",
                   style: getRegularStyle(color: AppColors.white, fontSize: 15),
                 ),
-                const SizedBox(
-                  height: 100,
+                SizedBox(
+                  height: context.height * 0.13,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
