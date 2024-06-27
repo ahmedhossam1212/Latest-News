@@ -4,7 +4,6 @@ import 'package:latest_news/core/utils/media_query_values.dart';
 import 'package:latest_news/core/utils/style_manager.dart';
 import 'package:latest_news/presntation/view/widgets/orgnizations_card.dart';
 import 'package:latest_news/presntation/view/widgets/slider.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class FeedsScreen extends StatefulWidget {
   const FeedsScreen({super.key});
