@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:latest_news/config/network/constanc.dart';
+import 'package:latest_news/presntation/manager/cubit/trending_cubit.dart';
 import 'package:latest_news/presntation/manager/cubit/user_info_cubit.dart';
 import 'package:latest_news/presntation/view/screens/login_screen.dart';
 
@@ -35,6 +36,9 @@ abstract class AppRouter {
         providers: [
           BlocProvider(
             create: (context) => UserInfoCubit()..getUserInfo(uId: uId!),
+          ),
+          BlocProvider(
+            create: (context) => TrendingCubit()..getTrends(),
           )
         ],
         child: const MainScreen(),
