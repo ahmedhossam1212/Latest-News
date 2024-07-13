@@ -10,6 +10,7 @@ Widget buildTrends(
   Articles model,
 ) =>
     Material(
+      color: AppColors.white,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

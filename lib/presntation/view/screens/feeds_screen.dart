@@ -192,7 +192,7 @@ class _FeedsScreenState extends State<FeedsScreen> {
                       borderRadius: BorderRadius.circular(25),
                       elevation: 10,
                       child: CircleAvatar(
-                          radius: 25,
+                          radius: context.height * 0.025,
                           backgroundColor: AppColors.white,
                           child: CircularProgressIndicator(
                             color: AppColors.black,
