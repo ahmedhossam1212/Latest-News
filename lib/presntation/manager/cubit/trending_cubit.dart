@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:latest_news/models/trending_model.dart';
@@ -15,8 +13,13 @@ class TrendingCubit extends Cubit<TrendingStates> {
 
   String country = "us";
 
-  void getTrends() async {
-    emit(TrendingLoadingState());
+  void getTrends({bool fromPagination = false}) async {
+    if (fromPagination) {
+      emit(TrendingPaginationState());
+    } else {
+      emit(TrendingLoadingState());
+    }
+
     try {
       final response = await Dio().get(
         "https://newsapi.org/v2/top-headlines?country=us&apiKey=9366f1f9c66749b78e18d5aa73b29511",
@@ -24,10 +27,8 @@ class TrendingCubit extends Cubit<TrendingStates> {
       var model = TrendingModel.fromJson(response.data);
       trends = model.articles;
 
-      log("${response.data["articles"]}");
       emit(TrendingSuccessState());
     } catch (e) {
-      print(e);
       emit(TrendingErrState());
     }
   }

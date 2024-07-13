@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:latest_news/core/utils/app_colors.dart';
@@ -17,17 +19,40 @@ class FeedsScreen extends StatefulWidget {
 }
 
 class _FeedsScreenState extends State<FeedsScreen> {
+  final scrollController = ScrollController();
+  int trendsLength = 5;
+  bool isLoading = false;
+
+  @override
+  void initState() {
+    super.initState();
+    scrollController.addListener(scrollLisntner);
+  }
+
+  void scrollLisntner() {
+    if (scrollController.position.pixels ==
+        scrollController.position.maxScrollExtent) {
+      if (trendsLength < 20) {
+        setState(() {
+          trendsLength = trendsLength + 5;
+          TrendingCubit.get(context).getTrends(fromPagination: true);
+        });
+      }
+
+      log("$trendsLength");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<TrendingCubit, TrendingStates>(
-      listener: (context, state) {
-        print(state);
-      },
+      listener: (context, state) {},
       builder: (context, state) {
         var cubit = TrendingCubit.get(context);
         return Scaffold(
           body: Center(
             child: SingleChildScrollView(
+              controller: scrollController,
               scrollDirection: Axis.vertical,
               physics: const BouncingScrollPhysics(),
               child: Padding(
@@ -126,10 +151,14 @@ class _FeedsScreenState extends State<FeedsScreen> {
                       height: context.height * 0.01,
                     ),
                     BlocBuilder<TrendingCubit, TrendingStates>(
+                      buildWhen: (previous, current) =>
+                          current is! TrendingPaginationState,
                       builder: (context, state) {
                         if (state is TrendingLoadingState) {
-                          return CircularProgressIndicator(
-                            color: AppColors.yellow,
+                          return Center(
+                            child: CircularProgressIndicator(
+                              color: AppColors.black,
+                            ),
                           );
                         } else if (state is TrendingSuccessState) {
                           return ListView.separated(
@@ -142,16 +171,37 @@ class _FeedsScreenState extends State<FeedsScreen> {
                               separatorBuilder: (context, index) => SizedBox(
                                     height: context.height * 0.02,
                                   ),
-                              itemCount: cubit.trends.length);
+                              itemCount: trendsLength);
                         } else {
                           return const Text("Err");
                         }
                       },
-                    )
+                    ),
                   ],
                 ),
               ),
             ),
+          ),
+          floatingActionButton: BlocBuilder<TrendingCubit, TrendingStates>(
+            builder: (context, state) {
+              if (state is TrendingPaginationState) {
+                return Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Material(
+                      clipBehavior: Clip.hardEdge,
+                      borderRadius: BorderRadius.circular(25),
+                      elevation: 10,
+                      child: CircleAvatar(
+                          radius: 25,
+                          backgroundColor: AppColors.white,
+                          child: CircularProgressIndicator(
+                            color: AppColors.black,
+                          )),
+                    ));
+              } else {
+                return const Text("");
+              }
+            },
           ),
         );
       },
