@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:latest_news/config/routes/app_routs.dart';
 import 'package:latest_news/core/utils/app_colors.dart';
 import 'package:latest_news/core/utils/media_query_values.dart';
 import 'package:latest_news/core/utils/style_manager.dart';
@@ -9,7 +10,7 @@ import 'package:latest_news/presntation/manager/cubit/trending_cubit.dart';
 import 'package:latest_news/presntation/manager/states/trending_states.dart';
 import 'package:latest_news/presntation/view/widgets/orgnizations_card.dart';
 import 'package:latest_news/presntation/view/widgets/slider.dart';
-import 'package:latest_news/presntation/view/widgets/trending_card.dart';
+import 'package:latest_news/presntation/view/widgets/news_card.dart';
 
 class FeedsScreen extends StatefulWidget {
   const FeedsScreen({super.key});
@@ -131,7 +132,9 @@ class _FeedsScreenState extends State<FeedsScreen> {
                             width: context.width * 0.02,
                           ),
                           buildOrgCard(
-                              fun: () {},
+                              fun: () {
+                                AppRouter.goPush(context, AppRouter.X);
+                              },
                               image: "assets/logos/X_logo_2023.svg",
                               orgName: "X"),
                           SizedBox(
@@ -164,7 +167,7 @@ class _FeedsScreenState extends State<FeedsScreen> {
                           return ListView.separated(
                               shrinkWrap: true,
                               physics: const NeverScrollableScrollPhysics(),
-                              itemBuilder: (context, index) => buildTrends(
+                              itemBuilder: (context, index) => buildNewsCard(
                                     context,
                                     cubit.trends[index],
                                   ),

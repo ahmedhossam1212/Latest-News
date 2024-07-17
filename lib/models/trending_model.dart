@@ -1,5 +1,5 @@
-class TrendingModel {
-  TrendingModel({
+class NewsModel {
+  NewsModel({
     required this.status,
     required this.totalResults,
     required this.articles,
@@ -8,7 +8,7 @@ class TrendingModel {
   late final int totalResults;
   late final List<Articles> articles;
 
-  TrendingModel.fromJson(Map<String, dynamic> json) {
+  NewsModel.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     totalResults = json['totalResults'];
     articles =

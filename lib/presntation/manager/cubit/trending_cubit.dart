@@ -9,8 +9,6 @@ class TrendingCubit extends Cubit<TrendingStates> {
   static TrendingCubit get(context) => BlocProvider.of(context);
 
   List trends = [];
-  List source = [];
-
   String country = "us";
 
   void getTrends({bool fromPagination = false}) async {
@@ -22,9 +20,9 @@ class TrendingCubit extends Cubit<TrendingStates> {
 
     try {
       final response = await Dio().get(
-        "https://newsapi.org/v2/top-headlines?country=us&apiKey=9366f1f9c66749b78e18d5aa73b29511",
+        "https://newsapi.org/v2/top-headlines?country=$country&apiKey=9366f1f9c66749b78e18d5aa73b29511",
       );
-      var model = TrendingModel.fromJson(response.data);
+      var model = NewsModel.fromJson(response.data);
       trends = model.articles;
 
       emit(TrendingSuccessState());

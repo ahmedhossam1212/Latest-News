@@ -5,7 +5,7 @@ import 'package:latest_news/core/utils/style_manager.dart';
 import 'package:latest_news/models/trending_model.dart';
 import 'package:intl/intl.dart';
 
-Widget buildTrends(
+Widget buildNewsCard(
   BuildContext context,
   Articles model,
 ) =>

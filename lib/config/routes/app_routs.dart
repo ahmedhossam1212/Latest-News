@@ -8,8 +8,10 @@ import 'package:latest_news/presntation/view/screens/login_screen.dart';
 
 import 'package:latest_news/presntation/view/screens/main_screen.dart';
 import 'package:latest_news/presntation/view/screens/register_screen.dart';
+import 'package:latest_news/presntation/view/screens/x_news.dart';
 import 'package:latest_news/presntation/view/widgets/gaza_webview.dart';
 import 'package:latest_news/presntation/view/widgets/hollywood_web_view.dart';
+import 'package:latest_news/presntation/view/widgets/orgnization_news.dart';
 import 'package:latest_news/presntation/view/widgets/premierleague_webview.dart';
 
 abstract class AppRouter {
@@ -20,6 +22,7 @@ abstract class AppRouter {
   static const hollywoodWebV = '/hollywoodWebV';
   static const gazaWebV = '/gazaWebV';
   static const premierLeagueWebV = '/premierLeagueWebV';
+  static const X = '/X';
 
   // routes
 
@@ -55,6 +58,12 @@ abstract class AppRouter {
     GoRoute(
       path: premierLeagueWebV,
       builder: (context, state) => const PremierleagueWebview(),
+    ),
+    GoRoute(
+      path: X,
+      builder: (context, state) => const OrgnizationNews(
+        name: 'X',
+      ),
     ),
   ]);
 
