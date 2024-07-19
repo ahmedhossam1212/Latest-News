@@ -15,7 +15,10 @@ Widget buildOrgCard({
           CircleAvatar(
             radius: 30,
             backgroundColor: AppColors.lightGrey,
-            child: SvgPicture.asset(image),
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: SvgPicture.asset(image),
+            ),
           ),
           Text(
             orgName,
