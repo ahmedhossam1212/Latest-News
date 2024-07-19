@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:latest_news/config/network/constanc.dart';
+import 'package:latest_news/presntation/manager/cubit/orgnization_cubit.dart';
 import 'package:latest_news/presntation/manager/cubit/trending_cubit.dart';
 import 'package:latest_news/presntation/manager/cubit/user_info_cubit.dart';
 import 'package:latest_news/presntation/view/screens/login_screen.dart';
 
 import 'package:latest_news/presntation/view/screens/main_screen.dart';
+import 'package:latest_news/presntation/view/screens/orgs/x_screen.dart';
 import 'package:latest_news/presntation/view/screens/register_screen.dart';
 import 'package:latest_news/presntation/view/widgets/gaza_webview.dart';
 import 'package:latest_news/presntation/view/widgets/hollywood_web_view.dart';
@@ -57,10 +59,12 @@ abstract class AppRouter {
       path: premierLeagueWebV,
       builder: (context, state) => const PremierleagueWebview(),
     ),
-    // GoRoute(
-    //   path: X,
-    //   builder: (context, state) => const OrgnizationNews(),
-    // ),
+    GoRoute(
+      path: X,
+      builder: (context, state) => BlocProvider(
+          create: (context) => OrgnizationCubit()..fetchXNews(),
+          child: const XScreen()),
+    ),
   ]);
 
   // methods
