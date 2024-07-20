@@ -57,7 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       style: getBoldStyle(color: AppColors.black, fontSize: 30),
                     ),
                     Text(
-                      "Welcom back! explore news.",
+                      "Welcome back! explore news.",
                       style:
                           getRegularStyle(color: AppColors.grey, fontSize: 15),
                     ),

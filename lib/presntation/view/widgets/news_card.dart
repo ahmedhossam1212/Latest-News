@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:latest_news/core/utils/app_colors.dart';
 import 'package:latest_news/core/utils/media_query_values.dart';
 import 'package:latest_news/core/utils/style_manager.dart';
+import 'package:latest_news/models/news_model.dart';
 import 'package:intl/intl.dart';
-
-import '../../../models/news_model.dart';
 
 Widget buildNewsCard(
   BuildContext context,

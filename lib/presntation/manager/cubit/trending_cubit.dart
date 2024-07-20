@@ -1,8 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:latest_news/models/news_model.dart';
 import 'package:latest_news/presntation/manager/states/trending_states.dart';
-
-import '../../../models/news_model.dart';
 
 class TrendingCubit extends Cubit<TrendingStates> {
   TrendingCubit() : super(TrendingInitState());
