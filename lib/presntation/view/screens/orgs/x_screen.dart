@@ -20,7 +20,6 @@ class XScreen extends StatefulWidget {
 }
 
 class _XScreenState extends State<XScreen> {
-
   final scrollController = ScrollController();
   int orgsLength = 10;
   bool isLoading = false;
@@ -44,9 +43,10 @@ class _XScreenState extends State<XScreen> {
       log("$orgsLength");
     }
   }
+
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<OrgnizationCubit,OrgnizationsStates>(
+    return BlocConsumer<OrgnizationCubit, OrgnizationsStates>(
       listener: (context, state) {
         log("$state");
       },
@@ -69,62 +69,64 @@ class _XScreenState extends State<XScreen> {
               ),
             ),
           ),
-
           body: Padding(
             padding: const EdgeInsets.all(20.0),
-            child: Column(
-                children: [BlocBuilder<OrgnizationCubit,OrgnizationsStates>(
-                  buildWhen: (previous, current) =>
-                  current is! OrgPaginationState,
-                  builder: (context, state) {
-                    if(state is OrgLoadingState){
-                      return Center(child: CircularProgressIndicator(color: AppColors.black,));
-                    }else if(
-                    state is OrgSuccessState
-                    ){
-                      return Expanded(
-                        child: ListView.separated(
-                            controller: scrollController,
-                            itemBuilder: (context, index) => buildNewsCard(context,cubit.orgs[index] ),
-                            separatorBuilder: (context, index) => SizedBox(height: context.height*0.01,),
-                            itemCount: orgsLength),
-                      );
-                    }else{
-                      return Text("NO internet Connection",style: getSemiBoldStyle(color: AppColors.black,fontSize: 20),);
-                    }
-
-                  },
-
-                )]
-
-            ),
+            child: Column(children: [
+              BlocBuilder<OrgnizationCubit, OrgnizationsStates>(
+                buildWhen: (previous, current) =>
+                    current is! OrgPaginationState,
+                builder: (context, state) {
+                  if (state is OrgLoadingState) {
+                    return Center(
+                        child: CircularProgressIndicator(
+                      color: AppColors.black,
+                    ));
+                  } else if (state is OrgSuccessState) {
+                    return Expanded(
+                      child: ListView.separated(
+                          controller: scrollController,
+                          itemBuilder: (context, index) =>
+                              buildNewsCard(context, cubit.orgs[index]),
+                          separatorBuilder: (context, index) => SizedBox(
+                                height: context.height * 0.01,
+                              ),
+                          itemCount: orgsLength),
+                    );
+                  } else {
+                    return Text(
+                      "NO internet Connection",
+                      style: getSemiBoldStyle(
+                          color: AppColors.black, fontSize: 20),
+                    );
+                  }
+                },
+              )
+            ]),
           ),
-            floatingActionButton: BlocBuilder<OrgnizationCubit, OrgnizationsStates>(
-        builder: (context, state) {
-          if (state is OrgPaginationState) {
-            return Align(
-                alignment: Alignment.bottomCenter,
-                child: Material(
-                  clipBehavior: Clip.hardEdge,
-                  borderRadius: BorderRadius.circular(25),
-                  elevation: 10,
-                  child: CircleAvatar(
-                      radius: context.height * 0.025,
-                      backgroundColor: AppColors.white,
-                      child: CircularProgressIndicator(
-                        color: AppColors.black,
-                      )),
-                ));
-          } else {
-            return const Text("");
-          }
-        },
-        ),
+          floatingActionButton:
+              BlocBuilder<OrgnizationCubit, OrgnizationsStates>(
+            builder: (context, state) {
+              if (state is OrgPaginationState) {
+                return Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Material(
+                      clipBehavior: Clip.hardEdge,
+                      borderRadius: BorderRadius.circular(25),
+                      elevation: 10,
+                      child: CircleAvatar(
+                          radius: context.height * 0.025,
+                          backgroundColor: AppColors.white,
+                          child: CircularProgressIndicator(
+                            color: AppColors.black,
+                          )),
+                    ));
+              } else {
+                return const Text("");
+              }
+            },
+          ),
         );
-
       },
-
     );
-
   }
 }
