@@ -12,14 +12,14 @@ import 'package:latest_news/presntation/view/widgets/news_card.dart';
 
 import '../../../../config/routes/app_routs.dart';
 
-class XScreen extends StatefulWidget {
-  const XScreen({super.key});
+class AmazonScreen extends StatefulWidget {
+  const AmazonScreen({super.key});
 
   @override
-  State<XScreen> createState() => _XScreenState();
+  State<AmazonScreen> createState() => _AmazonScreenState();
 }
 
-class _XScreenState extends State<XScreen> {
+class _AmazonScreenState extends State<AmazonScreen> {
   final scrollController = ScrollController();
   int orgsLength = 10;
   bool isLoading = false;
@@ -36,7 +36,8 @@ class _XScreenState extends State<XScreen> {
       if (orgsLength < 100) {
         setState(() {
           orgsLength = orgsLength + 10;
-          OrgnizationCubit.get(context).fetchOrgs(fromPagination: true);
+          OrgnizationCubit.get(context)
+              .fetchOrgs(fromPagination: true, org: "Amazon");
         });
       }
 
@@ -65,7 +66,7 @@ class _XScreenState extends State<XScreen> {
               backgroundColor: AppColors.white,
               child: Padding(
                 padding: const EdgeInsets.all(15.0),
-                child: SvgPicture.asset("assets/logos/X_logo_2023.svg"),
+                child: SvgPicture.asset("assets/logos/Amazon_logo.svg"),
               ),
             ),
           ),

@@ -42,7 +42,7 @@ class HollywoodCard extends StatelessWidget {
       children: [
         Container(
           width: double.infinity,
-          height: context.height * 0.290,
+          height: context.height * 0.300,
           clipBehavior: Clip.hardEdge,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
@@ -53,7 +53,7 @@ class HollywoodCard extends StatelessWidget {
           ),
         ),
         Container(
-          height: context.height * 0.290,
+          height: context.height * 0.300,
           width: double.infinity,
           decoration: BoxDecoration(
               color: Colors.black.withOpacity(0.5),
@@ -107,7 +107,7 @@ class GazaCard extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          height: context.height * 0.290,
+          height: context.height * 0.300,
           width: double.infinity,
           clipBehavior: Clip.hardEdge,
           decoration: BoxDecoration(
@@ -119,7 +119,7 @@ class GazaCard extends StatelessWidget {
           ),
         ),
         Container(
-          height: context.height * 0.290,
+          height: context.height * 0.300,
           width: double.infinity,
           decoration: BoxDecoration(
               color: Colors.black.withOpacity(0.5),
@@ -173,7 +173,7 @@ class PremierLeagueCard extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          height: context.height * 0.290,
+          height: context.height * 0.300,
           width: double.infinity,
           clipBehavior: Clip.hardEdge,
           decoration: BoxDecoration(
@@ -185,7 +185,7 @@ class PremierLeagueCard extends StatelessWidget {
           ),
         ),
         Container(
-          height: context.height * 0.290,
+          height: context.height * 0.300,
           width: double.infinity,
           decoration: BoxDecoration(
               color: Colors.black.withOpacity(0.5),

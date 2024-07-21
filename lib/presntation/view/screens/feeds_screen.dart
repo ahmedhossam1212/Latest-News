@@ -76,56 +76,72 @@ class _FeedsScreenState extends State<FeedsScreen> {
                       child: Row(
                         children: [
                           buildOrgCard(
-                              fun: () {},
+                              fun: () {
+                                AppRouter.goPush(context, AppRouter.audi);
+                              },
                               image: "assets/logos/audi-svgrepo-com.svg",
                               orgName: "Audi"),
                           SizedBox(
                             width: context.width * 0.02,
                           ),
                           buildOrgCard(
-                              fun: () {},
+                              fun: () {
+                                AppRouter.goPush(context, AppRouter.amazon);
+                              },
                               image: "assets/logos/Amazon_logo.svg",
                               orgName: "Amazon"),
                           SizedBox(
                             width: context.width * 0.02,
                           ),
                           buildOrgCard(
-                              fun: () {},
+                              fun: () {
+                                AppRouter.goPush(context, AppRouter.apple);
+                              },
                               image: "assets/logos/apple.svg",
                               orgName: "Apple"),
                           SizedBox(
                             width: context.width * 0.02,
                           ),
                           buildOrgCard(
-                              fun: () {},
+                              fun: () {
+                                AppRouter.goPush(context, AppRouter.bmw);
+                              },
                               image: "assets/logos/bmw-svgrepo-com.svg",
                               orgName: "BMW"),
                           SizedBox(
                             width: context.width * 0.02,
                           ),
                           buildOrgCard(
-                              fun: () {},
+                              fun: () {
+                                AppRouter.goPush(context, AppRouter.google);
+                              },
                               image: "assets/logos/google-icon-logo.svg",
                               orgName: "Google"),
                           SizedBox(
                             width: context.width * 0.02,
                           ),
                           buildOrgCard(
-                              fun: () {},
+                              fun: () {
+                                AppRouter.goPush(context, AppRouter.meta);
+                              },
                               image: "assets/logos/meta-svgrepo-com.svg",
                               orgName: "Meta"),
                           SizedBox(
                             width: context.width * 0.02,
                           ),
                           buildOrgCard(
-                              fun: () {},
+                              fun: () {
+                                AppRouter.goPush(context, AppRouter.spacex);
+                              },
                               image: "assets/logos/spacex.svg",
                               orgName: "SpaceX"),
                           SizedBox(
                             width: context.width * 0.02,
                           ),
                           buildOrgCard(
-                              fun: () {},
+                              fun: () {
+                                AppRouter.goPush(context, AppRouter.tesla);
+                              },
                               image: "assets/logos/tesla.svg",
                               orgName: "Tesla"),
                           SizedBox(
