@@ -87,7 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       controller: passwordController,
                       validate: (String value) {
                         if (value.length < 5) {
-                          return "invaled password";
+                          return "invalid password";
                         } else {
                           return null;
                         }
