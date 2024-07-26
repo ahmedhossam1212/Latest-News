@@ -15,7 +15,7 @@ Widget buildAppLogo(BuildContext context) => Row(
           child: Center(
             child: Text(
               "Latest",
-              style: getBoldStyle(color: AppColors.white, fontSize: 22),
+              style: getBoldStyle(color: AppColors.white, fontSize: 20),
             ),
           ),
         ),
@@ -30,7 +30,7 @@ Widget buildAppLogo(BuildContext context) => Row(
           child: Center(
             child: Text(
               "News",
-              style: getBoldStyle(color: AppColors.white, fontSize: 22),
+              style: getBoldStyle(color: AppColors.white, fontSize: 20),
             ),
           ),
         ),

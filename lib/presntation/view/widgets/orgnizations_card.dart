@@ -22,7 +22,7 @@ Widget buildOrgCard({
           ),
           Text(
             orgName,
-            style: getRegularStyle(color: AppColors.black, fontSize: 18),
+            style: getRegularStyle(color: AppColors.black, fontSize: 15),
           )
         ],
       ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const String _fontFamily = 'AlegreyaSansSC';
+const String _fontFamily = 'Raleway';
 
 TextStyle _getTextStyle(double fontSize, FontWeight fontWeight, Color color) {
   return TextStyle(

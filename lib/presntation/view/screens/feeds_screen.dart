@@ -68,7 +68,7 @@ class _FeedsScreenState extends State<FeedsScreen> {
                     ),
                     Text(
                       "Popular Organization",
-                      style: getBoldStyle(color: AppColors.black, fontSize: 25),
+                      style: getBoldStyle(color: AppColors.black, fontSize: 20),
                     ),
                     SingleChildScrollView(
                       physics: const BouncingScrollPhysics(),
@@ -164,7 +164,7 @@ class _FeedsScreenState extends State<FeedsScreen> {
                     ),
                     Text(
                       "Trends",
-                      style: getBoldStyle(color: AppColors.black, fontSize: 25),
+                      style: getBoldStyle(color: AppColors.black, fontSize: 20),
                     ),
                     SizedBox(
                       height: context.height * 0.01,

@@ -22,10 +22,10 @@ Widget buildNewsCard(
                 width: context.width * 0.55,
                 height: context.height * 0.15,
                 child: Text(
-                  maxLines: 4,
+                  maxLines: 5,
                   overflow: TextOverflow.ellipsis,
                   model.title,
-                  style: getSemiBoldStyle(color: AppColors.black, fontSize: 20),
+                  style: getSemiBoldStyle(color: AppColors.black, fontSize: 17),
                 ),
               ),
               SizedBox(
@@ -55,7 +55,7 @@ Widget buildNewsCard(
                   ),
                   Text(
                     "${DateFormat.yMMMMd().format(DateTime.parse(model.publishedAt))} ",
-                    style: getLightStyle(fontSize: 15, color: AppColors.grey),
+                    style: getLightStyle(fontSize: 10, color: AppColors.grey),
                   ),
                 ],
               ),

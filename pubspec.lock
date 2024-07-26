@@ -113,6 +113,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.4.3+1"
+  extensionresoft:
+    dependency: transitive
+    description:
+      name: extensionresoft
+      sha256: de2c2015c3488382c18555ecb61e90e69e20930233ffa87b301984ccc3261284
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.6"
   fake_async:
     dependency: transitive
     description:
@@ -448,6 +456,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.1.2"
+  riff_switch:
+    dependency: "direct main"
+    description:
+      name: riff_switch
+      sha256: c657b251258016f3ee4b9188c6523b8bf1361aaa5be49b6b16d5c80bae253516
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.4"
   shared_preferences:
     dependency: "direct main"
     description:
