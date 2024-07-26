@@ -142,32 +142,36 @@ class _LoginScreenState extends State<LoginScreen> {
                     SizedBox(
                       height: context.height * 0.03,
                     ),
-                    Text(
-                      "Login with ",
-                      style: getSemiBoldStyle(
-                          color: isDark! ? AppColors.white : AppColors.black,
-                          fontSize: 20),
-                    ),
-                    Container(
-                      width: context.width * 0.5,
-                      decoration: BoxDecoration(
-                          color: isDark!
-                              ? AppColors.darkGrey
-                              : AppColors.lightGrey,
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          IconButton(
-                              onPressed: () {
-                                cubit.signInWithGoogle();
-                              },
-                              icon: Icon(
-                                Icons.g_mobiledata_outlined,
-                                color: AppColors.grey,
-                                size: 55,
-                              ))
-                        ],
+                    InkWell(
+                      onTap: () {
+                        cubit.signInWithGoogle();
+                      },
+                      child: Container(
+                        height: context.height * 0.05,
+                        decoration: BoxDecoration(
+                            color: isDark!
+                                ? AppColors.darkGrey
+                                : AppColors.lightGrey,
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.g_mobiledata_outlined,
+                              color: AppColors.grey,
+                              size: 40,
+                            ),
+                            Text(
+                              "Sign in with Google",
+                              style: getRegularStyle(
+                                  color: isDark!
+                                      ? AppColors.white
+                                      : AppColors.black,
+                                  fontSize: 15),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     SizedBox(
