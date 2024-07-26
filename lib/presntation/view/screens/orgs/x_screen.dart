@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:latest_news/config/network/constanc.dart';
 import 'package:latest_news/core/utils/app_colors.dart';
 import 'package:latest_news/core/utils/media_query_values.dart';
 import 'package:latest_news/core/utils/style_manager.dart';
@@ -53,6 +54,7 @@ class _XScreenState extends State<XScreen> {
       builder: (context, state) {
         var cubit = OrgnizationCubit.get(context);
         return Scaffold(
+          backgroundColor: isDark! ? AppColors.black : AppColors.white,
           appBar: AppBar(
             centerTitle: true,
             leading: IconButton(
@@ -79,7 +81,7 @@ class _XScreenState extends State<XScreen> {
                   if (state is OrgLoadingState) {
                     return Center(
                         child: CircularProgressIndicator(
-                      color: AppColors.black,
+                      color: isDark! ? AppColors.white : AppColors.black,
                     ));
                   } else if (state is OrgSuccessState) {
                     return Expanded(
@@ -116,8 +118,11 @@ class _XScreenState extends State<XScreen> {
                       child: CircleAvatar(
                           radius: context.height * 0.025,
                           backgroundColor: AppColors.white,
-                          child: CircularProgressIndicator(
-                            color: AppColors.black,
+                          child: Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: CircularProgressIndicator(
+                              color: AppColors.black,
+                            ),
                           )),
                     ));
               } else {

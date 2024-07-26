@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:latest_news/config/network/constanc.dart';
 import 'package:latest_news/core/utils/app_colors.dart';
 import 'package:latest_news/core/utils/style_manager.dart';
 
@@ -22,7 +23,9 @@ Widget buildOrgCard({
           ),
           Text(
             orgName,
-            style: getRegularStyle(color: AppColors.black, fontSize: 15),
+            style: getRegularStyle(
+                color: isDark! ? AppColors.white : AppColors.black,
+                fontSize: 15),
           )
         ],
       ),

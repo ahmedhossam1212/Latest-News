@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:latest_news/config/network/constanc.dart';
 import 'package:latest_news/config/network/local/cach_helper.dart';
 import 'package:latest_news/core/utils/app_colors.dart';
 import 'package:latest_news/core/utils/media_query_values.dart';
@@ -23,6 +24,7 @@ class ProfileScreen extends StatelessWidget {
       builder: (context, state) {
         var cubit = UserInfoCubit.get(context);
         return Scaffold(
+          backgroundColor: isDark! ? AppColors.black : AppColors.white,
           body: Center(
             child: BlocBuilder<UserInfoCubit, UserInfoStates>(
               builder: (context, state) {
@@ -40,7 +42,8 @@ class ProfileScreen extends StatelessWidget {
                       Text(
                         "${cubit.userModel!.name}",
                         style: getSemiBoldStyle(
-                            color: AppColors.black, fontSize: 25),
+                            color: isDark! ? AppColors.white : AppColors.black,
+                            fontSize: 25),
                       ),
                       Text(
                         "${cubit.userModel!.email}",
@@ -69,11 +72,16 @@ class ProfileScreen extends StatelessWidget {
                                   Text(
                                     "Logout ",
                                     style: getSemiBoldStyle(
-                                        color: AppColors.black, fontSize: 25),
+                                        color: isDark!
+                                            ? AppColors.white
+                                            : AppColors.black,
+                                        fontSize: 20),
                                   ),
                                   Icon(
                                     Icons.login,
-                                    color: AppColors.black,
+                                    color: isDark!
+                                        ? AppColors.white
+                                        : AppColors.black,
                                   ),
                                 ],
                               ));
@@ -83,7 +91,7 @@ class ProfileScreen extends StatelessWidget {
                   );
                 } else {
                   return CircularProgressIndicator(
-                    color: AppColors.black,
+                    color: isDark! ? AppColors.white : AppColors.black,
                   );
                 }
               },

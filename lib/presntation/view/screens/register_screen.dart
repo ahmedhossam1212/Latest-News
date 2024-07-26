@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:latest_news/config/network/constanc.dart';
 import 'package:latest_news/config/network/local/cach_helper.dart';
 import 'package:latest_news/config/routes/app_routs.dart';
 import 'package:latest_news/core/utils/app_colors.dart';
@@ -39,12 +40,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
       builder: (context, state) {
         var cubit = AuthCubit.get(context);
         return Scaffold(
+          backgroundColor: isDark! ? AppColors.black : AppColors.white,
           appBar: AppBar(
+            backgroundColor: isDark! ? AppColors.black : AppColors.white,
             leading: IconButton(
                 onPressed: () {
                   AppRouter.goBack(context);
                 },
-                icon: const Icon(Icons.arrow_back_ios)),
+                icon: Icon(
+                  Icons.arrow_back_ios,
+                  color: isDark! ? AppColors.white : AppColors.black,
+                )),
           ),
           body: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
@@ -60,7 +66,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     Text(
                       "Register",
-                      style: getBoldStyle(color: AppColors.black, fontSize: 30),
+                      style: getBoldStyle(
+                          color: isDark! ? AppColors.white : AppColors.black,
+                          fontSize: 30),
                     ),
                     Text(
                       "Browse what's going on around the world",
@@ -170,7 +178,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       builder: (context, state) {
                         if (state is AuthLoadingState) {
                           return CircularProgressIndicator(
-                            color: AppColors.yellow,
+                            color: isDark! ? AppColors.white : AppColors.black,
                           );
                         } else {
                           return mainButton(context, onpressd: () {
@@ -181,7 +189,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   password: passwordController.text);
                             }
                           },
-                              background: AppColors.black,
+                              background:
+                                  isDark! ? AppColors.white : AppColors.black,
                               text: "Create account");
                         }
                       },

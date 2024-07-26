@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:latest_news/config/network/constanc.dart';
 import 'package:latest_news/core/utils/app_colors.dart';
 import 'package:latest_news/core/utils/media_query_values.dart';
 import 'package:latest_news/core/utils/style_manager.dart';
@@ -19,7 +20,8 @@ Widget mainButton(
         color: background,
         child: Text(
           text,
-          style: getRegularStyle(color: AppColors.white, fontSize: 20),
+          style: getRegularStyle(
+              color: isDark! ? AppColors.black : AppColors.white, fontSize: 20),
         ),
       ),
     );

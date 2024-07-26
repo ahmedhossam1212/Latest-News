@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:latest_news/config/network/constanc.dart';
+import 'package:latest_news/config/network/local/cach_helper.dart';
 import 'package:latest_news/presntation/manager/states/navbar_states.dart';
 import 'package:latest_news/presntation/view/screens/category_screen.dart';
 import 'package:latest_news/presntation/view/screens/feeds_screen.dart';
@@ -37,5 +39,17 @@ class NavbarCubit extends Cubit<NavbarStates> {
   void changeNavBar(int index) {
     currentIndex = index;
     emit(NavbarSuccesState());
+  }
+
+  void changemode({bool? shared}) {
+    if (shared != null) {
+      isDark = shared;
+      emit(DarkModeState());
+    } else {
+      isDark = !isDark!;
+      CacheHelper.putBoolean(key: 'isDark', value: isDark!).then((value) {
+        emit(DarkModeState());
+      });
+    }
   }
 }

@@ -36,7 +36,9 @@ class MainScreenState extends State<MainScreen> {
           var cubit = NavbarCubit.get(context);
 
           return Scaffold(
+            backgroundColor: isDark! ? AppColors.black : AppColors.white,
             appBar: AppBar(
+              backgroundColor: isDark! ? AppColors.black : AppColors.white,
               leading: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: buildAppLogo(context),
@@ -48,7 +50,7 @@ class MainScreenState extends State<MainScreen> {
               margin: EdgeInsets.all(displayWidth * .05),
               height: displayWidth * .155,
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: isDark! ? AppColors.darkGrey : AppColors.white,
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black.withOpacity(.3),
@@ -88,7 +90,9 @@ class MainScreenState extends State<MainScreen> {
                               : 0,
                           decoration: BoxDecoration(
                             color: index == cubit.currentIndex
-                                ? Colors.deepOrangeAccent.withOpacity(.5)
+                                ? isDark!
+                                    ? AppColors.lightGrey
+                                    : Colors.deepOrangeAccent.withOpacity(.5)
                                 : Colors.transparent,
                             borderRadius: BorderRadius.circular(50),
                           ),

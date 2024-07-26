@@ -6,5 +6,7 @@ class AppColors {
   static Color white = HexColor("FFFFFF");
   static Color grey = HexColor("#828282");
   static Color black = HexColor("#000000");
+  static Color darkGrey = HexColor("#263238");
+
   static Color lightGrey = HexColor("#F2F2F2");
 }

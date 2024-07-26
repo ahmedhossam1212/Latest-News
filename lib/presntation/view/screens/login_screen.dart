@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:latest_news/config/network/constanc.dart';
 import 'package:latest_news/config/network/local/cach_helper.dart';
 import 'package:latest_news/config/routes/app_routs.dart';
 import 'package:latest_news/core/utils/app_colors.dart';
@@ -39,7 +40,10 @@ class _LoginScreenState extends State<LoginScreen> {
       builder: (context, state) {
         var cubit = AuthCubit.get(context);
         return Scaffold(
-          appBar: AppBar(),
+          backgroundColor: isDark! ? AppColors.black : AppColors.white,
+          appBar: AppBar(
+            backgroundColor: isDark! ? AppColors.black : AppColors.white,
+          ),
           body: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
             child: Padding(
@@ -54,7 +58,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     Text(
                       "Login",
-                      style: getBoldStyle(color: AppColors.black, fontSize: 30),
+                      style: getBoldStyle(
+                          color: isDark! ? AppColors.white : AppColors.black,
+                          fontSize: 30),
                     ),
                     Text(
                       "Welcome back! explore news.",
@@ -117,7 +123,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       builder: (context, state) {
                         if (state is AuthLoadingState) {
                           return CircularProgressIndicator(
-                            color: AppColors.yellow,
+                            color: isDark! ? AppColors.white : AppColors.black,
                           );
                         } else {
                           return mainButton(context, onpressd: () {
@@ -126,7 +132,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                   email: emailController.text,
                                   password: passwordController.text);
                             }
-                          }, background: AppColors.black, text: "Login");
+                          },
+                              background:
+                                  isDark! ? AppColors.white : AppColors.black,
+                              text: "Login");
                         }
                       },
                     ),
@@ -136,23 +145,19 @@ class _LoginScreenState extends State<LoginScreen> {
                     Text(
                       "Login with ",
                       style: getSemiBoldStyle(
-                          color: AppColors.black, fontSize: 20),
+                          color: isDark! ? AppColors.white : AppColors.black,
+                          fontSize: 20),
                     ),
                     Container(
                       width: context.width * 0.5,
                       decoration: BoxDecoration(
-                          color: AppColors.lightGrey,
+                          color: isDark!
+                              ? AppColors.darkGrey
+                              : AppColors.lightGrey,
                           borderRadius: BorderRadius.circular(10)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons.facebook_outlined,
-                                size: 40,
-                              ),
-                              color: AppColors.grey),
                           IconButton(
                               onPressed: () {
                                 cubit.signInWithGoogle();
@@ -174,7 +179,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         Text(
                           "Don't have an account?",
                           style: getRegularStyle(
-                              color: AppColors.black, fontSize: 15),
+                              color:
+                                  isDark! ? AppColors.white : AppColors.black,
+                              fontSize: 15),
                         ),
                         TextButton(
                           onPressed: () {

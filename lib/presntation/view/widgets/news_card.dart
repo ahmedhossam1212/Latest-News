@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:latest_news/config/network/constanc.dart';
 import 'package:latest_news/core/utils/app_colors.dart';
 import 'package:latest_news/core/utils/media_query_values.dart';
 import 'package:latest_news/core/utils/style_manager.dart';
@@ -10,7 +11,7 @@ Widget buildNewsCard(
   Articles model,
 ) =>
     Material(
-      color: AppColors.white,
+      color: isDark! ? AppColors.black : AppColors.white,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -25,7 +26,9 @@ Widget buildNewsCard(
                   maxLines: 5,
                   overflow: TextOverflow.ellipsis,
                   model.title,
-                  style: getSemiBoldStyle(color: AppColors.black, fontSize: 17),
+                  style: getSemiBoldStyle(
+                      color: isDark! ? AppColors.white : AppColors.black,
+                      fontSize: 17),
                 ),
               ),
               SizedBox(

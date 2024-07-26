@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:latest_news/config/network/constanc.dart';
 import 'package:latest_news/config/routes/app_routs.dart';
 import 'package:latest_news/core/utils/app_colors.dart';
 import 'package:latest_news/core/utils/media_query_values.dart';
@@ -51,6 +52,7 @@ class _FeedsScreenState extends State<FeedsScreen> {
       builder: (context, state) {
         var cubit = TrendingCubit.get(context);
         return Scaffold(
+          backgroundColor: isDark! ? AppColors.black : AppColors.white,
           body: Center(
             child: SingleChildScrollView(
               controller: scrollController,
@@ -68,7 +70,9 @@ class _FeedsScreenState extends State<FeedsScreen> {
                     ),
                     Text(
                       "Popular Organization",
-                      style: getBoldStyle(color: AppColors.black, fontSize: 20),
+                      style: getBoldStyle(
+                          color: isDark! ? AppColors.white : AppColors.black,
+                          fontSize: 20),
                     ),
                     SingleChildScrollView(
                       physics: const BouncingScrollPhysics(),
@@ -164,7 +168,9 @@ class _FeedsScreenState extends State<FeedsScreen> {
                     ),
                     Text(
                       "Trends",
-                      style: getBoldStyle(color: AppColors.black, fontSize: 20),
+                      style: getBoldStyle(
+                          color: isDark! ? AppColors.white : AppColors.black,
+                          fontSize: 20),
                     ),
                     SizedBox(
                       height: context.height * 0.01,
@@ -176,7 +182,8 @@ class _FeedsScreenState extends State<FeedsScreen> {
                         if (state is TrendingLoadingState) {
                           return Center(
                             child: CircularProgressIndicator(
-                              color: AppColors.black,
+                              color:
+                                  isDark! ? AppColors.white : AppColors.black,
                             ),
                           );
                         } else if (state is TrendingSuccessState) {
@@ -213,8 +220,11 @@ class _FeedsScreenState extends State<FeedsScreen> {
                       child: CircleAvatar(
                           radius: context.height * 0.025,
                           backgroundColor: AppColors.white,
-                          child: CircularProgressIndicator(
-                            color: AppColors.black,
+                          child: Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: CircularProgressIndicator(
+                              color: AppColors.black,
+                            ),
                           )),
                     ));
               } else {

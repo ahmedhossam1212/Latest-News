@@ -7,3 +7,5 @@ class NavbarLoadingState extends NavbarStates {}
 class NavbarSuccesState extends NavbarStates {}
 
 class NavbarErrState extends NavbarStates {}
+
+class DarkModeState extends NavbarStates {}
