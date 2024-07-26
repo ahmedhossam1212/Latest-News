@@ -74,6 +74,9 @@ class _FeedsScreenState extends State<FeedsScreen> {
                           color: isDark! ? AppColors.white : AppColors.black,
                           fontSize: 20),
                     ),
+                    SizedBox(
+                      height: context.height * 0.01,
+                    ),
                     SingleChildScrollView(
                       physics: const BouncingScrollPhysics(),
                       scrollDirection: Axis.horizontal,

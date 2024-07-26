@@ -26,6 +26,7 @@ Widget buildAppearance(
           height: context.height * 0.01,
         ),
         Material(
+          color: isDark! ? AppColors.darkGrey : AppColors.lightGrey,
           clipBehavior: Clip.hardEdge,
           borderRadius: BorderRadius.circular(20),
           elevation: 10,
