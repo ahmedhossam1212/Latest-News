@@ -133,7 +133,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                 style: getSemiBoldStyle(
                                     color: Colors.red, fontSize: 20),
                               ),
-                              Icon(
+                              const Icon(
                                 Icons.login,
                                 color: Colors.red,
                               ),
