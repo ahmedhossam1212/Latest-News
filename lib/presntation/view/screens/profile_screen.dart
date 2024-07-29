@@ -53,40 +53,6 @@ class ProfileScreen extends StatelessWidget {
                       SizedBox(
                         height: context.height * 0.05,
                       ),
-                      BlocConsumer<AuthCubit, AuthStates>(
-                        listener: (context, state) {},
-                        builder: (context, state) {
-                          return IconButton(
-                              onPressed: () {
-                                CacheHelper.removeData(key: 'uId');
-
-                                AuthCubit.get(context).googleSignOut();
-                                AuthCubit.get(context).logout(context);
-
-                                AppRouter.goAndFinish(
-                                    context, AppRouter.loginRout);
-                              },
-                              icon: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    "Logout ",
-                                    style: getSemiBoldStyle(
-                                        color: isDark!
-                                            ? AppColors.white
-                                            : AppColors.black,
-                                        fontSize: 20),
-                                  ),
-                                  Icon(
-                                    Icons.login,
-                                    color: isDark!
-                                        ? AppColors.white
-                                        : AppColors.black,
-                                  ),
-                                ],
-                              ));
-                        },
-                      ),
                     ],
                   );
                 } else {
