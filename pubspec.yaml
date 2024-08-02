@@ -1,13 +1,12 @@
 name: latest_news
 description: "A new Flutter project."
 
-publish_to: 'none' 
+publish_to: 'none'
 
 version: 1.0.0+1
 
 environment:
   sdk: '>=3.4.1 <4.0.0'
-
 
 dependencies:
   flutter:
@@ -28,33 +27,25 @@ dependencies:
   flutter_bloc: ^8.1.6
   riff_switch: ^0.0.4
 
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
- 
   flutter_lints: ^3.0.0
-
-
 
 flutter:
 
-  
   uses-material-design: true
 
-  
   assets:
-     - assets/images/
-     - assets/logos/
+    - assets/images/
+    - assets/logos/
   #   - images/a_dot_ham.jpeg
-
-  
- 
   fonts:
-     - family: Raleway
-       fonts:
-         - asset: assets/fonts/Raleway-Regular.ttf
+    - family: Raleway
+      fonts:
+        - asset: assets/fonts/Raleway-Regular.ttf
   #       
   #
- 
+flutter_intl:
+  enabled: true

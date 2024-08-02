@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:latest_news/config/network/constanc.dart';
-import 'package:latest_news/config/network/local/cach_helper.dart';
 import 'package:latest_news/core/utils/app_colors.dart';
 import 'package:latest_news/core/utils/media_query_values.dart';
 import 'package:latest_news/core/utils/style_manager.dart';
-import 'package:latest_news/presntation/manager/cubit/auth_cubit.dart';
 import 'package:latest_news/presntation/manager/cubit/user_info_cubit.dart';
-import 'package:latest_news/presntation/manager/states/auth_states.dart';
 import 'package:latest_news/presntation/manager/states/user_info_states.dart';
-
-import '../../../config/routes/app_routs.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
