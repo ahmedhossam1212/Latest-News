@@ -7,10 +7,8 @@ import 'package:latest_news/core/utils/app_colors.dart';
 import 'package:latest_news/core/utils/media_query_values.dart';
 import 'package:latest_news/core/utils/style_manager.dart';
 import 'package:latest_news/presntation/manager/cubit/auth_cubit.dart';
-import 'package:latest_news/presntation/manager/cubit/lang_cubit.dart';
 import 'package:latest_news/presntation/manager/cubit/navbar_cubit.dart';
 import 'package:latest_news/presntation/manager/states/auth_states.dart';
-import 'package:latest_news/presntation/manager/states/lang_states.dart';
 import 'package:latest_news/presntation/manager/states/navbar_states.dart';
 
 import 'package:latest_news/presntation/view/widgets/appearance_widget.dart';
@@ -52,67 +50,55 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         color:
                             isDark! ? AppColors.darkGrey : AppColors.lightGrey,
                       ),
-                      child: BlocConsumer<LangCubit, LangStates>(
-                        listener: (context, state) {},
-                        builder: (context, state) {
-                          return ExpansionTile(
-                            childrenPadding: const EdgeInsets.all(5),
-                            shape: Border.all(
-                                color: isDark!
-                                    ? AppColors.darkGrey
-                                    : AppColors.lightGrey),
-                            backgroundColor: isDark!
+                      child: ExpansionTile(
+                        childrenPadding: const EdgeInsets.all(5),
+                        shape: Border.all(
+                            color: isDark!
                                 ? AppColors.darkGrey
-                                : AppColors.lightGrey,
-                            clipBehavior: Clip.hardEdge,
-                            iconColor:
-                                isDark! ? AppColors.white : AppColors.black,
-                            collapsedIconColor:
-                                isDark! ? AppColors.white : AppColors.black,
-                            title: Text(
-                              S.of(context).lang,
-                              style: getRegularStyle(
-                                  color: isDark!
-                                      ? AppColors.white
-                                      : AppColors.black,
-                                  fontSize: 15),
-                            ),
-                            children: [
-                              TextButton(
-                                  onPressed: () {
-                                    LangCubit.get(context).changeLang();
-                                  },
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        " ${S.of(context).ar}",
-                                        style: getBoldStyle(
-                                            color: isDark!
-                                                ? AppColors.white
-                                                : AppColors.black,
-                                            fontSize: 14),
-                                      )
-                                    ],
-                                  )),
-                              TextButton(
-                                  onPressed: () {
-                                    LangCubit.get(context).changeLang();
-                                  },
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        " ${S.of(context).en}",
-                                        style: getBoldStyle(
-                                            color: isDark!
-                                                ? AppColors.white
-                                                : AppColors.black,
-                                            fontSize: 14),
-                                      )
-                                    ],
-                                  )),
-                            ],
-                          );
-                        },
+                                : AppColors.lightGrey),
+                        backgroundColor:
+                            isDark! ? AppColors.darkGrey : AppColors.lightGrey,
+                        clipBehavior: Clip.hardEdge,
+                        iconColor: isDark! ? AppColors.white : AppColors.black,
+                        collapsedIconColor:
+                            isDark! ? AppColors.white : AppColors.black,
+                        title: Text(
+                          S.of(context).lang,
+                          style: getRegularStyle(
+                              color:
+                                  isDark! ? AppColors.white : AppColors.black,
+                              fontSize: 15),
+                        ),
+                        children: [
+                          TextButton(
+                              onPressed: () {},
+                              child: Row(
+                                children: [
+                                  Text(
+                                    " ${S.of(context).ar}",
+                                    style: getBoldStyle(
+                                        color: isDark!
+                                            ? AppColors.white
+                                            : AppColors.black,
+                                        fontSize: 14),
+                                  )
+                                ],
+                              )),
+                          TextButton(
+                              onPressed: () {},
+                              child: Row(
+                                children: [
+                                  Text(
+                                    " ${S.of(context).en}",
+                                    style: getBoldStyle(
+                                        color: isDark!
+                                            ? AppColors.white
+                                            : AppColors.black,
+                                        fontSize: 14),
+                                  )
+                                ],
+                              )),
+                        ],
                       ),
                     ),
                   ),
