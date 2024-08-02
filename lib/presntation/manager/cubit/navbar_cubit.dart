@@ -22,12 +22,6 @@ class NavbarCubit extends Cubit<NavbarStates> {
     Icons.settings_rounded,
     Icons.person_rounded,
   ];
-  List<String> listOfStrings = [
-    'Feed',
-    'Category',
-    'Settings',
-    'Profile',
-  ];
 
   List<Widget> screens = [
     const FeedsScreen(),

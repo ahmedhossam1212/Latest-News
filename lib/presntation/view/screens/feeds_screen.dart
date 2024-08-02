@@ -7,6 +7,7 @@ import 'package:latest_news/config/routes/app_routs.dart';
 import 'package:latest_news/core/utils/app_colors.dart';
 import 'package:latest_news/core/utils/media_query_values.dart';
 import 'package:latest_news/core/utils/style_manager.dart';
+import 'package:latest_news/generated/l10n.dart';
 import 'package:latest_news/presntation/manager/cubit/trending_cubit.dart';
 import 'package:latest_news/presntation/manager/states/trending_states.dart';
 import 'package:latest_news/presntation/view/widgets/orgnizations_card.dart';
@@ -69,7 +70,7 @@ class _FeedsScreenState extends State<FeedsScreen> {
                       height: context.height * 0.01,
                     ),
                     Text(
-                      "Popular Organization",
+                      S.of(context).popular_orgs,
                       style: getBoldStyle(
                           color: isDark! ? AppColors.white : AppColors.black,
                           fontSize: 20),
@@ -170,7 +171,7 @@ class _FeedsScreenState extends State<FeedsScreen> {
                       height: context.height * 0.02,
                     ),
                     Text(
-                      "Trends",
+                      S.of(context).trends,
                       style: getBoldStyle(
                           color: isDark! ? AppColors.white : AppColors.black,
                           fontSize: 20),

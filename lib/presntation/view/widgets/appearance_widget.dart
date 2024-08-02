@@ -8,6 +8,8 @@ import 'package:latest_news/presntation/manager/cubit/navbar_cubit.dart';
 import 'package:latest_news/presntation/manager/states/navbar_states.dart';
 import 'package:riff_switch/riff_switch.dart';
 
+import '../../../generated/l10n.dart';
+
 Widget buildAppearance(
   BuildContext context,
   bool switchValue,
@@ -18,7 +20,7 @@ Widget buildAppearance(
         Padding(
           padding: const EdgeInsets.only(left: 15),
           child: Text(
-            "Appearance",
+            S.of(context).appearance,
             style: getRegularStyle(color: AppColors.grey, fontSize: 18),
           ),
         ),
@@ -41,7 +43,7 @@ Widget buildAppearance(
               child: Row(
                 children: [
                   Text(
-                    "Dark mode",
+                    S.of(context).dark,
                     style: getRegularStyle(
                         color: isDark! ? AppColors.white : AppColors.black,
                         fontSize: 15),

@@ -6,6 +6,7 @@ import 'package:latest_news/config/routes/app_routs.dart';
 import 'package:latest_news/core/utils/app_colors.dart';
 import 'package:latest_news/core/utils/media_query_values.dart';
 import 'package:latest_news/core/utils/style_manager.dart';
+import 'package:latest_news/generated/l10n.dart';
 import 'package:latest_news/presntation/manager/cubit/auth_cubit.dart';
 import 'package:latest_news/presntation/manager/states/auth_states.dart';
 import 'package:latest_news/presntation/view/widgets/app_logo.dart';
@@ -65,13 +66,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       height: context.height * 0.05,
                     ),
                     Text(
-                      "Register",
+                      S.of(context).register,
                       style: getBoldStyle(
                           color: isDark! ? AppColors.white : AppColors.black,
                           fontSize: 30),
                     ),
                     Text(
-                      "Browse what's going on around the world",
+                      S.of(context).register_msg,
                       style:
                           getRegularStyle(color: AppColors.grey, fontSize: 15),
                     ),
@@ -84,7 +85,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         return "Name not valied";
                       }
                     },
-                        hint: "Name",
+                        hint: S.of(context).name,
                         type: TextInputType.name,
                         width: double.infinity,
                         suffix: Icon(
@@ -102,7 +103,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         return "email not valied";
                       }
                     },
-                        hint: "Email",
+                        hint: S.of(context).email,
                         type: TextInputType.emailAddress,
                         width: double.infinity,
                         suffix: Icon(
@@ -122,7 +123,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           return null;
                         }
                       },
-                      hint: "Password",
+                      hint: S.of(context).pass,
                       type: TextInputType.emailAddress,
                       width: double.infinity,
                       suffix: IconButton(
@@ -153,7 +154,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           return null;
                         }
                       },
-                      hint: "Confirm password",
+                      hint: S.of(context).confirm_pass,
                       type: TextInputType.emailAddress,
                       width: double.infinity,
                       suffix: IconButton(
@@ -191,7 +192,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           },
                               background:
                                   isDark! ? AppColors.white : AppColors.black,
-                              text: "Create account");
+                              text: S.of(context).create_account);
                         }
                       },
                     ),

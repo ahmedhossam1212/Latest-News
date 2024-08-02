@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:latest_news/config/network/constanc.dart';
 import 'package:latest_news/config/network/local/cach_helper.dart';
 import 'package:latest_news/core/utils/app_colors.dart';
+import 'package:latest_news/generated/l10n.dart';
 import 'package:latest_news/presntation/manager/cubit/navbar_cubit.dart';
 import 'package:latest_news/presntation/manager/states/navbar_states.dart';
 import 'package:latest_news/presntation/view/widgets/app_logo.dart';
@@ -33,6 +34,12 @@ class MainScreenState extends State<MainScreen> {
       child: BlocConsumer<NavbarCubit, NavbarStates>(
         listener: (context, state) {},
         builder: (context, state) {
+          List<String> listOfStrings = [
+            S.of(context).feed,
+            S.of(context).category,
+            S.of(context).settings,
+            S.of(context).profile,
+          ];
           var cubit = NavbarCubit.get(context);
 
           return Scaffold(
@@ -122,12 +129,12 @@ class MainScreenState extends State<MainScreen> {
                                   curve: Curves.fastLinearToSlowEaseIn,
                                   child: Text(
                                     index == cubit.currentIndex
-                                        ? cubit.listOfStrings[index]
+                                        ? listOfStrings[index]
                                         : '',
                                     style: TextStyle(
                                       color: AppColors.black,
                                       fontWeight: FontWeight.w600,
-                                      fontSize: 15,
+                                      fontSize: 12,
                                     ),
                                   ),
                                 ),

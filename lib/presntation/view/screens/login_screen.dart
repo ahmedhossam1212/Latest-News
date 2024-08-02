@@ -7,6 +7,7 @@ import 'package:latest_news/config/routes/app_routs.dart';
 import 'package:latest_news/core/utils/app_colors.dart';
 import 'package:latest_news/core/utils/media_query_values.dart';
 import 'package:latest_news/core/utils/style_manager.dart';
+import 'package:latest_news/generated/l10n.dart';
 import 'package:latest_news/presntation/manager/cubit/auth_cubit.dart';
 import 'package:latest_news/presntation/manager/states/auth_states.dart';
 import 'package:latest_news/presntation/view/widgets/app_logo.dart';
@@ -57,13 +58,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: context.height * 0.05,
                     ),
                     Text(
-                      "Login",
+                      S.of(context).login,
                       style: getBoldStyle(
                           color: isDark! ? AppColors.white : AppColors.black,
                           fontSize: 30),
                     ),
                     Text(
-                      "Welcome back! explore news.",
+                      S.of(context).login_msg,
                       style:
                           getRegularStyle(color: AppColors.grey, fontSize: 15),
                     ),
@@ -78,7 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         return "email not valied";
                       }
                     },
-                        hint: "Email",
+                        hint: S.of(context).email,
                         type: TextInputType.emailAddress,
                         width: double.infinity,
                         suffix: Icon(
@@ -98,7 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           return null;
                         }
                       },
-                      hint: "Password",
+                      hint: S.of(context).pass,
                       type: TextInputType.emailAddress,
                       width: double.infinity,
                       suffix: IconButton(
@@ -135,7 +136,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           },
                               background:
                                   isDark! ? AppColors.white : AppColors.black,
-                              text: "Login");
+                              text: S.of(context).login);
                         }
                       },
                     ),
@@ -163,7 +164,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               size: 40,
                             ),
                             Text(
-                              "Sign in with Google",
+                              S.of(context).google,
                               style: getRegularStyle(
                                   color: isDark!
                                       ? AppColors.white
@@ -181,7 +182,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "Don't have an account?",
+                          S.of(context).havent_account,
                           style: getRegularStyle(
                               color:
                                   isDark! ? AppColors.white : AppColors.black,
@@ -192,7 +193,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             AppRouter.goPush(context, AppRouter.registerRout);
                           },
                           child: Text(
-                            "Register",
+                            S.of(context).register,
                             style: getBoldStyle(
                                 color: AppColors.yellow, fontSize: 15),
                           ),

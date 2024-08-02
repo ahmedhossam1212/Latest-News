@@ -4,6 +4,7 @@ import 'package:latest_news/config/routes/app_routs.dart';
 import 'package:latest_news/core/utils/app_colors.dart';
 import 'package:latest_news/core/utils/media_query_values.dart';
 import 'package:latest_news/core/utils/style_manager.dart';
+import 'package:latest_news/generated/l10n.dart';
 
 List<Widget> sliderList = [
   const HollywoodCard(),
@@ -64,11 +65,11 @@ class HollywoodCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Hollywood",
+                  S.of(context).hollywood,
                   style: getBoldStyle(color: AppColors.white, fontSize: 20),
                 ),
                 Text(
-                  "Follow the most important events within the American artistic community",
+                  S.of(context).hollywood_d,
                   style: getRegularStyle(color: AppColors.white, fontSize: 15),
                 ),
                 SizedBox(
@@ -83,7 +84,7 @@ class HollywoodCard extends StatelessWidget {
                       },
                       color: AppColors.white,
                       child: Text(
-                        "More details",
+                        S.of(context).more,
                         style:
                             getBoldStyle(color: AppColors.black, fontSize: 15),
                       ),
@@ -130,11 +131,11 @@ class GazaCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "GAZA",
+                  S.of(context).gaza,
                   style: getBoldStyle(color: AppColors.white, fontSize: 20),
                 ),
                 Text(
-                  "Follow the events of the war in Gaza and the effects of the brutal occupation on civilians",
+                  S.of(context).gaza_d,
                   style: getRegularStyle(color: AppColors.white, fontSize: 15),
                 ),
                 SizedBox(
@@ -149,7 +150,7 @@ class GazaCard extends StatelessWidget {
                       },
                       color: AppColors.white,
                       child: Text(
-                        "More details",
+                        S.of(context).more,
                         style:
                             getBoldStyle(color: AppColors.black, fontSize: 15),
                       ),
@@ -196,11 +197,11 @@ class PremierLeagueCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Premier League",
+                  S.of(context).premier_league,
                   style: getBoldStyle(color: AppColors.white, fontSize: 20),
                 ),
                 Text(
-                  "The events of the English Premier League have become interesting. Take a look",
+                  S.of(context).premierleague_d,
                   style: getRegularStyle(color: AppColors.white, fontSize: 15),
                 ),
                 SizedBox(
@@ -215,7 +216,7 @@ class PremierLeagueCard extends StatelessWidget {
                       },
                       color: AppColors.white,
                       child: Text(
-                        "More details",
+                        S.of(context).more,
                         style:
                             getBoldStyle(color: AppColors.black, fontSize: 15),
                       ),

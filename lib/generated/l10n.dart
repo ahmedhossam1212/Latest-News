@@ -49,6 +49,306 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `Gaza`
+  String get gaza {
+    return Intl.message(
+      'Gaza',
+      name: 'gaza',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Follow the events of the war in Gaza and the effects of the brutal occupation on civilians`
+  String get gaza_d {
+    return Intl.message(
+      'Follow the events of the war in Gaza and the effects of the brutal occupation on civilians',
+      name: 'gaza_d',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hollywood`
+  String get hollywood {
+    return Intl.message(
+      'Hollywood',
+      name: 'hollywood',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Follow the most important events within the American artistic community`
+  String get hollywood_d {
+    return Intl.message(
+      'Follow the most important events within the American artistic community',
+      name: 'hollywood_d',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Premier League`
+  String get premier_league {
+    return Intl.message(
+      'Premier League',
+      name: 'premier_league',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The events of the English Premier League have become interesting. Take a look`
+  String get premierleague_d {
+    return Intl.message(
+      'The events of the English Premier League have become interesting. Take a look',
+      name: 'premierleague_d',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `More details`
+  String get more {
+    return Intl.message(
+      'More details',
+      name: 'more',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Popular Organization`
+  String get popular_orgs {
+    return Intl.message(
+      'Popular Organization',
+      name: 'popular_orgs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Trends`
+  String get trends {
+    return Intl.message(
+      'Trends',
+      name: 'trends',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Feed`
+  String get feed {
+    return Intl.message(
+      'Feed',
+      name: 'feed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Category`
+  String get category {
+    return Intl.message(
+      'Category',
+      name: 'category',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get settings {
+    return Intl.message(
+      'Settings',
+      name: 'settings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Appearance`
+  String get appearance {
+    return Intl.message(
+      'Appearance',
+      name: 'appearance',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dark mode`
+  String get dark {
+    return Intl.message(
+      'Dark mode',
+      name: 'dark',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get lang {
+    return Intl.message(
+      'Language',
+      name: 'lang',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Arabic`
+  String get ar {
+    return Intl.message(
+      'Arabic',
+      name: 'ar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `English`
+  String get en {
+    return Intl.message(
+      'English',
+      name: 'en',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Logout`
+  String get logout {
+    return Intl.message(
+      'Logout',
+      name: 'logout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profile`
+  String get profile {
+    return Intl.message(
+      'Profile',
+      name: 'profile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login`
+  String get login {
+    return Intl.message(
+      'Login',
+      name: 'login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome back! explore news.`
+  String get login_msg {
+    return Intl.message(
+      'Welcome back! explore news.',
+      name: 'login_msg',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get email {
+    return Intl.message(
+      'Email',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get pass {
+    return Intl.message(
+      'Password',
+      name: 'pass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign in with Google`
+  String get google {
+    return Intl.message(
+      'Sign in with Google',
+      name: 'google',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don't have an account?`
+  String get havent_account {
+    return Intl.message(
+      'Don\'t have an account?',
+      name: 'havent_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Register`
+  String get register {
+    return Intl.message(
+      'Register',
+      name: 'register',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Browse what's going on around the world.`
+  String get register_msg {
+    return Intl.message(
+      'Browse what\'s going on around the world.',
+      name: 'register_msg',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get name {
+    return Intl.message(
+      'Name',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm password`
+  String get confirm_pass {
+    return Intl.message(
+      'Confirm password',
+      name: 'confirm_pass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create asccount`
+  String get create_account {
+    return Intl.message(
+      'Create asccount',
+      name: 'create_account',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -57,6 +357,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'ar'),
     ];
   }
 
