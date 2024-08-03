@@ -28,6 +28,8 @@
     "register_msg":"Browse what's going on around the world.",
     "name":"Name",
     "confirm_pass":"Confirm password",
-    "create_account":"Create asccount"
+    "create_account":"Create asccount",
+     "latest":"Latest",
+    "news":"News"
 
 }

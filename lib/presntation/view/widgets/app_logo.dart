@@ -3,6 +3,7 @@ import 'package:latest_news/config/network/constanc.dart';
 import 'package:latest_news/core/utils/app_colors.dart';
 import 'package:latest_news/core/utils/media_query_values.dart';
 import 'package:latest_news/core/utils/style_manager.dart';
+import 'package:latest_news/generated/l10n.dart';
 
 Widget buildAppLogo(BuildContext context) => Container(
       color: isDark! ? AppColors.black : AppColors.white,
@@ -13,12 +14,10 @@ Widget buildAppLogo(BuildContext context) => Container(
             height: context.height * 0.05,
             decoration: BoxDecoration(
                 color: AppColors.yellow,
-                borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(8),
-                    bottomLeft: Radius.circular(8))),
+                borderRadius: BorderRadius.circular(10)),
             child: Center(
               child: Text(
-                "Latest",
+                S.of(context).latest,
                 style: getBoldStyle(color: AppColors.white, fontSize: 20),
               ),
             ),
@@ -28,12 +27,10 @@ Widget buildAppLogo(BuildContext context) => Container(
             height: context.height * 0.05,
             decoration: BoxDecoration(
                 color: AppColors.black,
-                borderRadius: const BorderRadius.only(
-                    topRight: Radius.circular(8),
-                    bottomRight: Radius.circular(8))),
+                borderRadius: BorderRadius.circular(10)),
             child: Center(
               child: Text(
-                "News",
+                S.of(context).news,
                 style: getBoldStyle(color: AppColors.white, fontSize: 20),
               ),
             ),

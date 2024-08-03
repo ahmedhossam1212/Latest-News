@@ -66,7 +66,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       height: context.height * 0.05,
                     ),
                     Text(
-                      S.of(context).register,
+                      S.of(context).create_account,
                       style: getBoldStyle(
                           color: isDark! ? AppColors.white : AppColors.black,
                           fontSize: 30),

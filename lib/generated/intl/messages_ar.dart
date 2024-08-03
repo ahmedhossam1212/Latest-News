@@ -43,12 +43,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "hollywood_d": MessageLookupByLibrary.simpleMessage(
             "تابع أهم الأحداث في المجتمع الفني الأمريكي"),
         "lang": MessageLookupByLibrary.simpleMessage("اللغة"),
+        "latest": MessageLookupByLibrary.simpleMessage("آخر"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "login_msg":
             MessageLookupByLibrary.simpleMessage("مرحبًا! استكشف الأخبار."),
         "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
         "more": MessageLookupByLibrary.simpleMessage("المزيد"),
         "name": MessageLookupByLibrary.simpleMessage("الاسم"),
+        "news": MessageLookupByLibrary.simpleMessage("الأخبار"),
         "pass": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "popular_orgs": MessageLookupByLibrary.simpleMessage("منظمات شهيرة"),
         "premier_league":
@@ -56,7 +58,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "premierleague_d": MessageLookupByLibrary.simpleMessage(
             "أصبحت أحداث الدوري الإنجليزي الممتاز مثيرة. تحقق"),
         "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
-        "register": MessageLookupByLibrary.simpleMessage("التسجيل"),
+        "register": MessageLookupByLibrary.simpleMessage("سجل الان"),
         "register_msg":
             MessageLookupByLibrary.simpleMessage("تصفح ما يحدث حول العالم."),
         "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),

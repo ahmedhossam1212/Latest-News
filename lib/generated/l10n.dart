@@ -349,6 +349,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Latest`
+  String get latest {
+    return Intl.message(
+      'Latest',
+      name: 'latest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `News`
+  String get news {
+    return Intl.message(
+      'News',
+      name: 'news',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

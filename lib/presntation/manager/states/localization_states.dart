@@ -1,5 +1,8 @@
-class LocalizationStates {}
+import 'package:flutter/material.dart';
 
-class LocalizationChangeInitState extends LocalizationStates {}
-
-class LocalizationChangeSuccessState extends LocalizationStates {}
+class ChangeLocaleState {
+  final Locale locale;
+  ChangeLocaleState({
+    required this.locale,
+  });
+}

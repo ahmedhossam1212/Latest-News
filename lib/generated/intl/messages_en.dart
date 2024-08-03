@@ -43,12 +43,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "hollywood_d": MessageLookupByLibrary.simpleMessage(
             "Follow the most important events within the American artistic community"),
         "lang": MessageLookupByLibrary.simpleMessage("Language"),
+        "latest": MessageLookupByLibrary.simpleMessage("Latest"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "login_msg":
             MessageLookupByLibrary.simpleMessage("Welcome back! explore news."),
         "logout": MessageLookupByLibrary.simpleMessage("Logout"),
         "more": MessageLookupByLibrary.simpleMessage("More details"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
+        "news": MessageLookupByLibrary.simpleMessage("News"),
         "pass": MessageLookupByLibrary.simpleMessage("Password"),
         "popular_orgs":
             MessageLookupByLibrary.simpleMessage("Popular Organization"),

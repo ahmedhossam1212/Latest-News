@@ -4,15 +4,15 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:latest_news/config/routes/app_routs.dart';
 import 'package:latest_news/config/theme/app_theme.dart';
 import 'package:latest_news/presntation/manager/cubit/auth_cubit.dart';
+import 'package:latest_news/presntation/manager/cubit/localization_cubit.dart';
 import 'package:latest_news/presntation/manager/cubit/navbar_cubit.dart';
-import 'package:latest_news/presntation/manager/states/navbar_states.dart';
+import 'package:latest_news/presntation/manager/states/localization_states.dart';
 
 import 'generated/l10n.dart';
 
 class MyApp extends StatelessWidget {
   final bool isDark;
-  final bool lang;
-  const MyApp(this.isDark, this.lang, {super.key});
+  const MyApp(this.isDark, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,12 +24,14 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => NavbarCubit(),
         ),
+        BlocProvider(
+          create: (context) => LocaleCubit()..getSavedLanguage(),
+        ),
       ],
-      child: BlocBuilder<NavbarCubit, NavbarStates>(
+      child: BlocBuilder<LocaleCubit, ChangeLocaleState>(
         builder: (context, state) {
-          bool cubit = NavbarCubit.get(context).language;
           return MaterialApp.router(
-            locale: cubit ? const Locale("ar") : const Locale("en"),
+            locale: state.locale,
             localizationsDelegates: const [
               S.delegate,
               GlobalMaterialLocalizations.delegate,

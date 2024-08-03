@@ -24,9 +24,11 @@
     "pass": "كلمة المرور",
     "google": "تسجيل الدخول باستخدام جوجل",
     "havent_account": "ليس لديك حساب؟",
-    "register": "التسجيل",
+    "register": "سجل الان",
     "register_msg": "تصفح ما يحدث حول العالم.",
     "name": "الاسم",
     "confirm_pass": "تأكيد كلمة المرور",
-    "create_account": "إنشاء حساب"
+    "create_account": "إنشاء حساب",
+    "latest":"آخر",
+    "news":"الأخبار"
 }

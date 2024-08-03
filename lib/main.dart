@@ -16,8 +16,7 @@ void main() async {
   await CacheHelper.init();
   uId = CacheHelper.getData(key: 'uId');
   isDark = CacheHelper.getData(key: 'isDark') ?? false;
-  lang = CacheHelper.getData(key: 'lang') ?? false;
   log("$isDark");
 
-  runApp(MyApp(isDark!, lang!));
+  runApp(MyApp(isDark!));
 }
