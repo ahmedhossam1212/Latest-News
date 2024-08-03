@@ -5,12 +5,15 @@ import 'package:latest_news/config/routes/app_routs.dart';
 import 'package:latest_news/config/theme/app_theme.dart';
 import 'package:latest_news/presntation/manager/cubit/auth_cubit.dart';
 import 'package:latest_news/presntation/manager/cubit/navbar_cubit.dart';
+import 'package:latest_news/presntation/manager/states/navbar_states.dart';
 
 import 'generated/l10n.dart';
 
 class MyApp extends StatelessWidget {
   final bool isDark;
-  const MyApp(this.isDark, {super.key});
+  final bool lang;
+  const MyApp(this.isDark, this.lang, {super.key});
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -22,18 +25,23 @@ class MyApp extends StatelessWidget {
           create: (context) => NavbarCubit(),
         ),
       ],
-      child: MaterialApp.router(
-        locale: Locale("ar"),
-        localizationsDelegates: const [
-          S.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        supportedLocales: S.delegate.supportedLocales,
-        theme: AppTheme.lightTheme(),
-        debugShowCheckedModeBanner: false,
-        routerConfig: AppRouter.router,
+      child: BlocBuilder<NavbarCubit, NavbarStates>(
+        builder: (context, state) {
+          bool cubit = NavbarCubit.get(context).language;
+          return MaterialApp.router(
+            locale: cubit ? const Locale("ar") : const Locale("en"),
+            localizationsDelegates: const [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
+            theme: AppTheme.lightTheme(),
+            debugShowCheckedModeBanner: false,
+            routerConfig: AppRouter.router,
+          );
+        },
       ),
     );
   }

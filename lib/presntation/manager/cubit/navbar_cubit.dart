@@ -46,4 +46,16 @@ class NavbarCubit extends Cubit<NavbarStates> {
       });
     }
   }
+
+  bool language = CacheHelper.getData(key: 'lang');
+
+  void arLang() {
+    CacheHelper.putBoolean(key: 'lang', value: true);
+    emit(LocalizationChangeSuccessState());
+  }
+
+  void enLang() {
+    CacheHelper.putBoolean(key: 'lang', value: false);
+    emit(LocalizationChangeSuccessState());
+  }
 }

@@ -71,7 +71,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         ),
                         children: [
                           TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                NavbarCubit.get(context).arLang();
+                              },
                               child: Row(
                                 children: [
                                   Text(
@@ -85,7 +87,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                 ],
                               )),
                           TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                NavbarCubit.get(context).enLang();
+                              },
                               child: Row(
                                 children: [
                                   Text(
