@@ -27,7 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "business": MessageLookupByLibrary.simpleMessage("Business"),
         "business_d": MessageLookupByLibrary.simpleMessage(
             "Get to know the latest events in the global market"),
-        "category": MessageLookupByLibrary.simpleMessage("Category"),
+        "category": MessageLookupByLibrary.simpleMessage("Categories"),
         "confirm_pass":
             MessageLookupByLibrary.simpleMessage("Confirm password"),
         "create_account":

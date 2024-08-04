@@ -28,9 +28,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<NavbarCubit, NavbarStates>(
-      listener: (context, state) {
-        print(state);
-      },
+      listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
             backgroundColor: isDark! ? AppColors.black : AppColors.white,

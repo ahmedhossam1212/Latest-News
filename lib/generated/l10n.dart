@@ -150,10 +150,10 @@ class S {
     );
   }
 
-  /// `Category`
+  /// `Categories`
   String get category {
     return Intl.message(
-      'Category',
+      'Categories',
       name: 'category',
       desc: '',
       args: [],

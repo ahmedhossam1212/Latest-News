@@ -5,6 +5,10 @@ import 'package:latest_news/config/network/constanc.dart';
 import 'package:latest_news/presntation/manager/cubit/orgnization_cubit.dart';
 import 'package:latest_news/presntation/manager/cubit/trending_cubit.dart';
 import 'package:latest_news/presntation/manager/cubit/user_info_cubit.dart';
+import 'package:latest_news/presntation/view/screens/categories/business_screen.dart';
+import 'package:latest_news/presntation/view/screens/categories/science_screen.dart';
+import 'package:latest_news/presntation/view/screens/categories/sports_screen.dart';
+import 'package:latest_news/presntation/view/screens/categories/technology_screen.dart';
 import 'package:latest_news/presntation/view/screens/login_screen.dart';
 
 import 'package:latest_news/presntation/view/screens/main_screen.dart';
@@ -39,6 +43,10 @@ abstract class AppRouter {
   static const spacex = '/spacex';
   static const audi = '/audi';
   static const bmw = '/bmw';
+  static const sports = '/sports';
+  static const science = '/science';
+  static const business = '/business';
+  static const technology = '/technology';
 
   // routes
 
@@ -128,6 +136,22 @@ abstract class AppRouter {
       builder: (context, state) => BlocProvider(
           create: (context) => OrgnizationCubit()..fetchOrgs(org: "BMW"),
           child: const BMWScreen()),
+    ),
+    GoRoute(
+      path: sports,
+      builder: (context, state) => const SportsScreen(),
+    ),
+    GoRoute(
+      path: science,
+      builder: (context, state) => const ScienceScreen(),
+    ),
+    GoRoute(
+      path: business,
+      builder: (context, state) => const BusinessScreen(),
+    ),
+    GoRoute(
+      path: technology,
+      builder: (context, state) => const TechnologyScreen(),
     ),
   ]);
 

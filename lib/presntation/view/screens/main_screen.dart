@@ -134,7 +134,7 @@ class MainScreenState extends State<MainScreen> {
                                     style: TextStyle(
                                       color: AppColors.black,
                                       fontWeight: FontWeight.w600,
-                                      fontSize: 12,
+                                      fontSize: 13,
                                     ),
                                   ),
                                 ),
