@@ -369,6 +369,86 @@ class S {
       args: [],
     );
   }
+
+  /// `Sports`
+  String get sports {
+    return Intl.message(
+      'Sports',
+      name: 'sports',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Browse sports news and championships`
+  String get sports_d {
+    return Intl.message(
+      'Browse sports news and championships',
+      name: 'sports_d',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Science`
+  String get science {
+    return Intl.message(
+      'Science',
+      name: 'science',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Latest research results and developments in various scientific fields`
+  String get science_d {
+    return Intl.message(
+      'Latest research results and developments in various scientific fields',
+      name: 'science_d',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Business`
+  String get business {
+    return Intl.message(
+      'Business',
+      name: 'business',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get to know the latest events in the global market`
+  String get business_d {
+    return Intl.message(
+      'Get to know the latest events in the global market',
+      name: 'business_d',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Technology`
+  String get technology {
+    return Intl.message(
+      'Technology',
+      name: 'technology',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Technology is achieving great progress and accomplishments in the world`
+  String get technology_d {
+    return Intl.message(
+      'Technology is achieving great progress and accomplishments in the world',
+      name: 'technology_d',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -24,6 +24,9 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "appearance": MessageLookupByLibrary.simpleMessage("المظهر"),
         "ar": MessageLookupByLibrary.simpleMessage("العربية"),
+        "business": MessageLookupByLibrary.simpleMessage("سوق العمل"),
+        "business_d": MessageLookupByLibrary.simpleMessage(
+            "تعرف علي آخر الأحداث في السوق العالمي"),
         "category": MessageLookupByLibrary.simpleMessage("الأقسام"),
         "confirm_pass":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
@@ -61,7 +64,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "register": MessageLookupByLibrary.simpleMessage("سجل الان"),
         "register_msg":
             MessageLookupByLibrary.simpleMessage("تصفح ما يحدث حول العالم."),
+        "science": MessageLookupByLibrary.simpleMessage("العلوم"),
+        "science_d": MessageLookupByLibrary.simpleMessage(
+            "نتائج البحث العلمي و التطور الاخير في مجالات العلم المختلفه "),
         "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
+        "sports": MessageLookupByLibrary.simpleMessage("الرياضة"),
+        "sports_d": MessageLookupByLibrary.simpleMessage(
+            "تصفح اخبار الرياضة و البطولات"),
+        "technology": MessageLookupByLibrary.simpleMessage("التكنولوجيا"),
+        "technology_d": MessageLookupByLibrary.simpleMessage(
+            "التكنولوجيا في تحقق تطور و انجاز عظيم في العالم"),
         "trends": MessageLookupByLibrary.simpleMessage("متداول")
       };
 }

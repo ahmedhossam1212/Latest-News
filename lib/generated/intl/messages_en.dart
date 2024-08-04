@@ -24,6 +24,9 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "appearance": MessageLookupByLibrary.simpleMessage("Appearance"),
         "ar": MessageLookupByLibrary.simpleMessage("Arabic"),
+        "business": MessageLookupByLibrary.simpleMessage("Business"),
+        "business_d": MessageLookupByLibrary.simpleMessage(
+            "Get to know the latest events in the global market"),
         "category": MessageLookupByLibrary.simpleMessage("Category"),
         "confirm_pass":
             MessageLookupByLibrary.simpleMessage("Confirm password"),
@@ -62,7 +65,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "register_msg": MessageLookupByLibrary.simpleMessage(
             "Browse what\'s going on around the world."),
+        "science": MessageLookupByLibrary.simpleMessage("Science"),
+        "science_d": MessageLookupByLibrary.simpleMessage(
+            "Latest research results and developments in various scientific fields"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+        "sports": MessageLookupByLibrary.simpleMessage("Sports"),
+        "sports_d": MessageLookupByLibrary.simpleMessage(
+            "Browse sports news and championships"),
+        "technology": MessageLookupByLibrary.simpleMessage("Technology"),
+        "technology_d": MessageLookupByLibrary.simpleMessage(
+            "Technology is achieving great progress and accomplishments in the world"),
         "trends": MessageLookupByLibrary.simpleMessage("Trends")
       };
 }

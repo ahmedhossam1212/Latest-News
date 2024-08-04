@@ -29,7 +29,18 @@
     "name":"Name",
     "confirm_pass":"Confirm password",
     "create_account":"Create asccount",
-     "latest":"Latest",
-    "news":"News"
+    "latest":"Latest",
+    "news":"News",
 
+        "sports": "Sports",
+        "sports_d": "Browse sports news and championships",
+        "science": "Science",
+        "science_d": "Latest research results and developments in various scientific fields",
+        "business": "Business",
+        "business_d": "Get to know the latest events in the global market",
+        "technology": "Technology",
+        "technology_d": "Technology is achieving great progress and accomplishments in the world"
+ 
+
+      
 }

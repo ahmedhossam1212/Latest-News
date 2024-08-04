@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:latest_news/config/network/constanc.dart';
 import 'package:latest_news/core/utils/app_colors.dart';
+import 'package:latest_news/core/utils/media_query_values.dart';
 import 'package:latest_news/core/utils/style_manager.dart';
+import 'package:latest_news/generated/l10n.dart';
+import 'package:latest_news/presntation/view/widgets/categorys_card.dart';
 
 class CategoryScreen extends StatefulWidget {
   const CategoryScreen({super.key});
@@ -15,62 +18,42 @@ class _CategoryScreenState extends State<CategoryScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: isDark! ? AppColors.black : AppColors.white,
-      body: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: Column(
-          children: [
-            Material(
-              elevation: 10,
-              borderRadius: BorderRadius.circular(20),
-              clipBehavior: Clip.hardEdge,
-              color: isDark! ? AppColors.darkGrey : AppColors.lightGrey,
-              child: Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: isDark! ? AppColors.darkGrey : AppColors.lightGrey,
-                ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Sports",
-                            style: getBoldStyle(
-                                color:
-                                    isDark! ? AppColors.white : AppColors.black,
-                                fontSize: 20),
-                          ),
-                          SizedBox(
-                            width: 160,
-                            child: Text(
-                              "All news about sports in earth ",
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                              style: getBoldStyle(
-                                  color: AppColors.grey, fontSize: 15),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const Spacer(),
-                    SizedBox(
-                      width: 150,
-                      height: 100,
-                      child: Image.network(
-                          fit: BoxFit.cover,
-                          "https://img.freepik.com/free-photo/people-soccer-stadium_23-2151548540.jpg?t=st=1722604720~exp=1722608320~hmac=01fcc6d0d2db5330f45952048f297dcf9058c1299a61a9cec60ae77df0af55ba&w=2000"),
-                    )
-                  ],
-                ),
-              ),
-            )
-          ],
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Column(
+            children: [
+              buildCategoryCard(
+                  fun: () {},
+                  title: S.of(context).sports,
+                  discretion: S.of(context).sports_d,
+                  image:
+                      "https://img.freepik.com/free-photo/sports-tools_53876-138077.jpg?uid=R123558966&ga=GA1.1.889471589.1722604272&semt=sph"),
+              SizedBox(height: context.height * 0.06),
+              buildCategoryCard(
+                  fun: () {},
+                  title: S.of(context).science,
+                  discretion: S.of(context).science_d,
+                  image:
+                      "https://img.freepik.com/free-photo/viruses-highlighted-by-blue-red-hues-float-cellular-space_157027-4026.jpg?uid=R123558966&ga=GA1.1.889471589.1722604272&semt=sph"),
+              SizedBox(height: context.height * 0.06),
+              buildCategoryCard(
+                  fun: () {},
+                  title: S.of(context).business,
+                  discretion: S.of(context).business_d,
+                  image:
+                      "https://img.freepik.com/free-photo/millennial-asia-businessmen-businesswomen-meeting-brainstorming-ideas-about-new-paperwork-project-colleagues-working-together-planning-success-strategy-enjoy-teamwork-small-modern-night-office_7861-2386.jpg?uid=R123558966&ga=GA1.1.889471589.1722604272&semt=sph"),
+              SizedBox(height: context.height * 0.06),
+              buildCategoryCard(
+                  fun: () {},
+                  title: S.of(context).technology,
+                  discretion: S.of(context).technology_d,
+                  image:
+                      "https://img.freepik.com/free-photo/technology-human-touch-background-modern-remake-creation-adam_53876-129794.jpg?t=st=1722757924~exp=1722761524~hmac=9e3ffdbc22e5d20e9b79734091a287f0b0dc7ce60e9c494b7d1d79380dbce566&w=1800"),
+              SizedBox(height: context.height * 0.06),
+            ],
+          ),
         ),
       ),
     );
