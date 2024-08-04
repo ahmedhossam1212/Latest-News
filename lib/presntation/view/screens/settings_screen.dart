@@ -85,6 +85,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                     context
                                         .read<LocaleCubit>()
                                         .changeLanguage('ar');
+                                    lang = "ar";
+                                    CacheHelper.putString(
+                                        key: "lang", value: lang);
                                   },
                                   child: Row(
                                     children: [
@@ -103,6 +106,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                     context
                                         .read<LocaleCubit>()
                                         .changeLanguage('en');
+                                    lang = "en";
+                                    CacheHelper.putString(
+                                        key: "lang", value: lang);
                                   },
                                   child: Row(
                                     children: [

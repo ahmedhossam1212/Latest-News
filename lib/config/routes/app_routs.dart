@@ -56,9 +56,6 @@ abstract class AppRouter {
           BlocProvider(
             create: (context) => UserInfoCubit()..getUserInfo(uId: uId!),
           ),
-          BlocProvider(
-            create: (context) => TrendingCubit()..getTrends(),
-          )
         ],
         child: const MainScreen(),
       ),

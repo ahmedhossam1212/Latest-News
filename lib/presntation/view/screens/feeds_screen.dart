@@ -48,196 +48,199 @@ class _FeedsScreenState extends State<FeedsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<TrendingCubit, TrendingStates>(
-      listener: (context, state) {},
-      builder: (context, state) {
-        var cubit = TrendingCubit.get(context);
-        return Scaffold(
-          backgroundColor: isDark! ? AppColors.black : AppColors.white,
-          body: Center(
-            child: SingleChildScrollView(
-              controller: scrollController,
-              scrollDirection: Axis.vertical,
-              physics: const BouncingScrollPhysics(),
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    buildSlider(context),
-                    SizedBox(
-                      height: context.height * 0.01,
-                    ),
-                    Text(
-                      S.of(context).popular_orgs,
-                      style: getBoldStyle(
-                          color: isDark! ? AppColors.white : AppColors.black,
-                          fontSize: 20),
-                    ),
-                    SizedBox(
-                      height: context.height * 0.01,
-                    ),
-                    SingleChildScrollView(
-                      physics: const BouncingScrollPhysics(),
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          buildOrgCard(
-                              fun: () {
-                                AppRouter.goPush(context, AppRouter.audi);
-                              },
-                              image: "assets/logos/audi-svgrepo-com.svg",
-                              orgName: "Audi"),
-                          SizedBox(
-                            width: context.width * 0.02,
-                          ),
-                          buildOrgCard(
-                              fun: () {
-                                AppRouter.goPush(context, AppRouter.amazon);
-                              },
-                              image: "assets/logos/Amazon_logo.svg",
-                              orgName: "Amazon"),
-                          SizedBox(
-                            width: context.width * 0.02,
-                          ),
-                          buildOrgCard(
-                              fun: () {
-                                AppRouter.goPush(context, AppRouter.apple);
-                              },
-                              image: "assets/logos/apple.svg",
-                              orgName: "Apple"),
-                          SizedBox(
-                            width: context.width * 0.02,
-                          ),
-                          buildOrgCard(
-                              fun: () {
-                                AppRouter.goPush(context, AppRouter.bmw);
-                              },
-                              image: "assets/logos/bmw-svgrepo-com.svg",
-                              orgName: "BMW"),
-                          SizedBox(
-                            width: context.width * 0.02,
-                          ),
-                          buildOrgCard(
-                              fun: () {
-                                AppRouter.goPush(context, AppRouter.google);
-                              },
-                              image: "assets/logos/google-icon-logo.svg",
-                              orgName: "Google"),
-                          SizedBox(
-                            width: context.width * 0.02,
-                          ),
-                          buildOrgCard(
-                              fun: () {
-                                AppRouter.goPush(context, AppRouter.meta);
-                              },
-                              image: "assets/logos/meta-svgrepo-com.svg",
-                              orgName: "Meta"),
-                          SizedBox(
-                            width: context.width * 0.02,
-                          ),
-                          buildOrgCard(
-                              fun: () {
-                                AppRouter.goPush(context, AppRouter.spacex);
-                              },
-                              image: "assets/logos/spacex.svg",
-                              orgName: "SpaceX"),
-                          SizedBox(
-                            width: context.width * 0.02,
-                          ),
-                          buildOrgCard(
-                              fun: () {
-                                AppRouter.goPush(context, AppRouter.tesla);
-                              },
-                              image: "assets/logos/tesla.svg",
-                              orgName: "Tesla"),
-                          SizedBox(
-                            width: context.width * 0.02,
-                          ),
-                          buildOrgCard(
-                              fun: () {
-                                AppRouter.goPush(context, AppRouter.X);
-                              },
-                              image: "assets/logos/X_logo_2023.svg",
-                              orgName: "X"),
-                          SizedBox(
-                            width: context.width * 0.02,
-                          ),
-                        ],
+    return BlocProvider(
+      create: (context) => TrendingCubit()..getTrends(),
+      child: BlocConsumer<TrendingCubit, TrendingStates>(
+        listener: (context, state) {},
+        builder: (context, state) {
+          var cubit = TrendingCubit.get(context);
+          return Scaffold(
+            backgroundColor: isDark! ? AppColors.black : AppColors.white,
+            body: Center(
+              child: SingleChildScrollView(
+                controller: scrollController,
+                scrollDirection: Axis.vertical,
+                physics: const BouncingScrollPhysics(),
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      buildSlider(context),
+                      SizedBox(
+                        height: context.height * 0.01,
                       ),
-                    ),
-                    SizedBox(
-                      height: context.height * 0.02,
-                    ),
-                    Text(
-                      S.of(context).trends,
-                      style: getBoldStyle(
-                          color: isDark! ? AppColors.white : AppColors.black,
-                          fontSize: 20),
-                    ),
-                    SizedBox(
-                      height: context.height * 0.01,
-                    ),
-                    BlocBuilder<TrendingCubit, TrendingStates>(
-                      buildWhen: (previous, current) =>
-                          current is! TrendingPaginationState,
-                      builder: (context, state) {
-                        if (state is TrendingLoadingState) {
-                          return Center(
-                            child: CircularProgressIndicator(
-                              color:
-                                  isDark! ? AppColors.white : AppColors.black,
+                      Text(
+                        S.of(context).popular_orgs,
+                        style: getBoldStyle(
+                            color: isDark! ? AppColors.white : AppColors.black,
+                            fontSize: 20),
+                      ),
+                      SizedBox(
+                        height: context.height * 0.01,
+                      ),
+                      SingleChildScrollView(
+                        physics: const BouncingScrollPhysics(),
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: [
+                            buildOrgCard(
+                                fun: () {
+                                  AppRouter.goPush(context, AppRouter.audi);
+                                },
+                                image: "assets/logos/audi-svgrepo-com.svg",
+                                orgName: "Audi"),
+                            SizedBox(
+                              width: context.width * 0.02,
                             ),
-                          );
-                        } else if (state is TrendingSuccessState) {
-                          return ListView.separated(
-                              shrinkWrap: true,
-                              physics: const NeverScrollableScrollPhysics(),
-                              itemBuilder: (context, index) => buildNewsCard(
-                                    context,
-                                    cubit.trends[index],
-                                  ),
-                              separatorBuilder: (context, index) => SizedBox(
-                                    height: context.height * 0.02,
-                                  ),
-                              itemCount: trendsLength);
-                        } else {
-                          return const Text("Err");
-                        }
-                      },
-                    ),
-                  ],
+                            buildOrgCard(
+                                fun: () {
+                                  AppRouter.goPush(context, AppRouter.amazon);
+                                },
+                                image: "assets/logos/Amazon_logo.svg",
+                                orgName: "Amazon"),
+                            SizedBox(
+                              width: context.width * 0.02,
+                            ),
+                            buildOrgCard(
+                                fun: () {
+                                  AppRouter.goPush(context, AppRouter.apple);
+                                },
+                                image: "assets/logos/apple.svg",
+                                orgName: "Apple"),
+                            SizedBox(
+                              width: context.width * 0.02,
+                            ),
+                            buildOrgCard(
+                                fun: () {
+                                  AppRouter.goPush(context, AppRouter.bmw);
+                                },
+                                image: "assets/logos/bmw-svgrepo-com.svg",
+                                orgName: "BMW"),
+                            SizedBox(
+                              width: context.width * 0.02,
+                            ),
+                            buildOrgCard(
+                                fun: () {
+                                  AppRouter.goPush(context, AppRouter.google);
+                                },
+                                image: "assets/logos/google-icon-logo.svg",
+                                orgName: "Google"),
+                            SizedBox(
+                              width: context.width * 0.02,
+                            ),
+                            buildOrgCard(
+                                fun: () {
+                                  AppRouter.goPush(context, AppRouter.meta);
+                                },
+                                image: "assets/logos/meta-svgrepo-com.svg",
+                                orgName: "Meta"),
+                            SizedBox(
+                              width: context.width * 0.02,
+                            ),
+                            buildOrgCard(
+                                fun: () {
+                                  AppRouter.goPush(context, AppRouter.spacex);
+                                },
+                                image: "assets/logos/spacex.svg",
+                                orgName: "SpaceX"),
+                            SizedBox(
+                              width: context.width * 0.02,
+                            ),
+                            buildOrgCard(
+                                fun: () {
+                                  AppRouter.goPush(context, AppRouter.tesla);
+                                },
+                                image: "assets/logos/tesla.svg",
+                                orgName: "Tesla"),
+                            SizedBox(
+                              width: context.width * 0.02,
+                            ),
+                            buildOrgCard(
+                                fun: () {
+                                  AppRouter.goPush(context, AppRouter.X);
+                                },
+                                image: "assets/logos/X_logo_2023.svg",
+                                orgName: "X"),
+                            SizedBox(
+                              width: context.width * 0.02,
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: context.height * 0.02,
+                      ),
+                      Text(
+                        S.of(context).trends,
+                        style: getBoldStyle(
+                            color: isDark! ? AppColors.white : AppColors.black,
+                            fontSize: 20),
+                      ),
+                      SizedBox(
+                        height: context.height * 0.01,
+                      ),
+                      BlocBuilder<TrendingCubit, TrendingStates>(
+                        buildWhen: (previous, current) =>
+                            current is! TrendingPaginationState,
+                        builder: (context, state) {
+                          if (state is TrendingLoadingState) {
+                            return Center(
+                              child: CircularProgressIndicator(
+                                color:
+                                    isDark! ? AppColors.white : AppColors.black,
+                              ),
+                            );
+                          } else if (state is TrendingSuccessState) {
+                            return ListView.separated(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                itemBuilder: (context, index) => buildNewsCard(
+                                      context,
+                                      cubit.trends[index],
+                                    ),
+                                separatorBuilder: (context, index) => SizedBox(
+                                      height: context.height * 0.02,
+                                    ),
+                                itemCount: trendsLength);
+                          } else {
+                            return const Text("Err");
+                          }
+                        },
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-          floatingActionButton: BlocBuilder<TrendingCubit, TrendingStates>(
-            builder: (context, state) {
-              if (state is TrendingPaginationState) {
-                return Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Material(
-                      clipBehavior: Clip.hardEdge,
-                      borderRadius: BorderRadius.circular(25),
-                      elevation: 10,
-                      child: CircleAvatar(
-                          radius: context.height * 0.025,
-                          backgroundColor: AppColors.white,
-                          child: Padding(
-                            padding: const EdgeInsets.all(5.0),
-                            child: CircularProgressIndicator(
-                              color: AppColors.black,
-                            ),
-                          )),
-                    ));
-              } else {
-                return const Text("");
-              }
-            },
-          ),
-        );
-      },
+            floatingActionButton: BlocBuilder<TrendingCubit, TrendingStates>(
+              builder: (context, state) {
+                if (state is TrendingPaginationState) {
+                  return Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Material(
+                        clipBehavior: Clip.hardEdge,
+                        borderRadius: BorderRadius.circular(25),
+                        elevation: 10,
+                        child: CircleAvatar(
+                            radius: context.height * 0.025,
+                            backgroundColor: AppColors.white,
+                            child: Padding(
+                              padding: const EdgeInsets.all(5.0),
+                              child: CircularProgressIndicator(
+                                color: AppColors.black,
+                              ),
+                            )),
+                      ));
+                } else {
+                  return const Text("");
+                }
+              },
+            ),
+          );
+        },
+      ),
     );
   }
 }
