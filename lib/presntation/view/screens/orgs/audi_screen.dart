@@ -57,7 +57,7 @@ class _AudiScreenState extends State<AudiScreen> {
         return Scaffold(
           backgroundColor: isDark! ? AppColors.black : AppColors.white,
           appBar: AppBar(
-            backgroundColor: isDark! ? AppColors.white : AppColors.black,
+            backgroundColor: isDark! ? AppColors.black : AppColors.white,
             centerTitle: true,
             leading: IconButton(
                 onPressed: () {

@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:latest_news/config/network/constanc.dart';
 import 'package:latest_news/presntation/manager/states/orgnizations_states.dart';
 
 import '../../../models/news_model.dart';
@@ -21,7 +22,7 @@ class OrgnizationCubit extends Cubit<OrgnizationsStates> {
 
     try {
       final response = await Dio().get(
-        "https://newsapi.org/v2/everything?q=$org&apiKey=9366f1f9c66749b78e18d5aa73b29511",
+        "https://newsapi.org/v2/everything?q=$org&apiKey=9366f1f9c66749b78e18d5aa73b29511&language=$lang",
       );
       var model = NewsModel.fromJson(response.data);
       orgs = model.articles;
