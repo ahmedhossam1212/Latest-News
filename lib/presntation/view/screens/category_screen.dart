@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:latest_news/config/network/constanc.dart';
 import 'package:latest_news/config/routes/app_routs.dart';
 import 'package:latest_news/core/utils/app_colors.dart';
-import 'package:latest_news/core/utils/media_query_values.dart';
 import 'package:latest_news/generated/l10n.dart';
 import 'package:latest_news/presntation/view/widgets/categorys_card.dart';
 
