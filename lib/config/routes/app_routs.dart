@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:latest_news/config/network/constanc.dart';
+import 'package:latest_news/presntation/manager/cubit/categories_cubit.dart';
 import 'package:latest_news/presntation/manager/cubit/orgnization_cubit.dart';
 import 'package:latest_news/presntation/manager/cubit/trending_cubit.dart';
 import 'package:latest_news/presntation/manager/cubit/user_info_cubit.dart';
@@ -139,7 +140,11 @@ abstract class AppRouter {
     ),
     GoRoute(
       path: sports,
-      builder: (context, state) => const SportsScreen(),
+      builder: (context, state) => BlocProvider(
+        create: (context) =>
+            CategoriesCubit()..fetchcategories(category: 'sports'),
+        child: const SportsScreen(),
+      ),
     ),
     GoRoute(
       path: science,
