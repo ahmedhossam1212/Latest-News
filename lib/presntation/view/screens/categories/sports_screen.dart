@@ -60,10 +60,12 @@ class _SportsScreenState extends State<SportsScreen> {
             backgroundColor: isDark! ? AppColors.black : AppColors.white,
             centerTitle: true,
             leading: IconButton(
-                onPressed: () {
-                  AppRouter.goBack(context);
-                },
-                icon: const Icon(Icons.arrow_back_ios)),
+              onPressed: () {
+                AppRouter.goBack(context);
+              },
+              icon: const Icon(Icons.arrow_back_ios),
+              color: isDark! ? AppColors.white : AppColors.black,
+            ),
             title: Text(
               S.of(context).sports,
               style: getBoldStyle(

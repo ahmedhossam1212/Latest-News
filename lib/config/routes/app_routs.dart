@@ -148,15 +148,27 @@ abstract class AppRouter {
     ),
     GoRoute(
       path: science,
-      builder: (context, state) => const ScienceScreen(),
+      builder: (context, state) => BlocProvider(
+        create: (context) =>
+            CategoriesCubit()..fetchcategories(category: 'science'),
+        child: const ScienceScreen(),
+      ),
     ),
     GoRoute(
       path: business,
-      builder: (context, state) => const BusinessScreen(),
+      builder: (context, state) => BlocProvider(
+        create: (context) =>
+            CategoriesCubit()..fetchcategories(category: 'business'),
+        child: const BusinessScreen(),
+      ),
     ),
     GoRoute(
       path: technology,
-      builder: (context, state) => const TechnologyScreen(),
+      builder: (context, state) => BlocProvider(
+        create: (context) =>
+            CategoriesCubit()..fetchcategories(category: 'technology'),
+        child: const TechnologyScreen(),
+      ),
     ),
   ]);
 
