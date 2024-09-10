@@ -60,6 +60,7 @@ class MainScreenState extends State<MainScreen> {
                 color: isDark! ? AppColors.darkGrey : AppColors.white,
                 boxShadow: [
                   BoxShadow(
+                    // ignore: deprecated_member_use
                     color: Colors.black.withOpacity(.3),
                     blurRadius: 30,
                     offset: const Offset(0, 10),
@@ -99,6 +100,7 @@ class MainScreenState extends State<MainScreen> {
                             color: index == cubit.currentIndex
                                 ? isDark!
                                     ? AppColors.lightGrey
+                                    // ignore: deprecated_member_use
                                     : Colors.deepOrangeAccent.withOpacity(.5)
                                 : Colors.transparent,
                             borderRadius: BorderRadius.circular(50),

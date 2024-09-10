@@ -34,6 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
         log("$state");
         if (state is AuthSuccessState) {
           CacheHelper.saveData(key: 'uId', value: state.uId).then((value) {
+            // ignore: use_build_context_synchronously
             AppRouter.goAndFinish(context, AppRouter.homeRout);
           });
         }

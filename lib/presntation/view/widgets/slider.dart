@@ -57,6 +57,7 @@ class HollywoodCard extends StatelessWidget {
           height: context.height * 0.300,
           width: double.infinity,
           decoration: BoxDecoration(
+              // ignore: deprecated_member_use
               color: Colors.black.withOpacity(0.5),
               borderRadius: BorderRadius.circular(20)),
           child: Padding(
@@ -123,6 +124,7 @@ class GazaCard extends StatelessWidget {
           height: context.height * 0.300,
           width: double.infinity,
           decoration: BoxDecoration(
+              // ignore: deprecated_member_use
               color: Colors.black.withOpacity(0.5),
               borderRadius: BorderRadius.circular(20)),
           child: Padding(
@@ -189,6 +191,7 @@ class PremierLeagueCard extends StatelessWidget {
           height: context.height * 0.300,
           width: double.infinity,
           decoration: BoxDecoration(
+              // ignore: deprecated_member_use
               color: Colors.black.withOpacity(0.5),
               borderRadius: BorderRadius.circular(20)),
           child: Padding(
