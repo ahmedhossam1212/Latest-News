@@ -1,16 +1,15 @@
-# latest_news
+# Latest News
 
-A new Flutter project.
+# Getting Started
 
-## Getting Started
+An application that allows you to know news around the world with the ability to specify the language, sections, and specific classifications, with a dark mode, a settings page, and a page to view the profile.
 
-This project is a starting point for a Flutter application.
+# Developers
+  Ahmed Hossam - Flutter
 
-A few resources to get you started if this is your first Flutter project:
+# Contacts
+  - 01061917210
+  - ahossamm404@gmail.com
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Mockup
+![latest news](https://github.com/user-attachments/assets/f9ebe85c-c7be-4b97-8556-151d051f03c6)
